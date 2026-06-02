@@ -20,7 +20,7 @@
     .blob-1 { width: 700px; height: 700px; background: radial-gradient(circle, #7C3AED, transparent 70%); top: -200px; left: -200px; }
     .blob-2 { width: 500px; height: 500px; background: radial-gradient(circle, #F97316, transparent 70%); bottom: -100px; right: -100px; animation-duration: 22s; }
     @keyframes floatBlob { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(40px,-60px) scale(1.08); } 66% { transform: translate(-30px,40px) scale(0.95); } }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 5%; height: 250px; display: flex; align-items: center; justify-content: space-between; transition: background 0.3s; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 5%; height: 160px; display: flex; align-items: center; justify-content: space-between; transition: background 0.3s; }
     nav.scrolled { background: rgba(7,7,17,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--card-border); }
     .nav-logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; text-decoration: none; display: flex; align-items: center; }
     .nav-logo .ctf { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
@@ -77,7 +77,7 @@
 <body>
 <div class="blob-container" aria-hidden="true"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
 <nav id="navbar">
-  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="CTF Designs" style="height:135px;width:auto;margin-top:95px;border-radius:50%;"></a>
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="CTF Designs" style="height:135px;width:auto;margin-top:15px;border-radius:50%;"></a>
   <ul class="nav-links">
     <li><a href="index.html#services">Services</a></li>
     <li><a href="index.html#portfolio">Portfolio</a></li>
