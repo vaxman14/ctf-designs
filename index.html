@@ -459,16 +459,16 @@
       width: 260px;
       height: 260px;
       border-radius: 50%;
-      background: var(--grad);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 4rem;
-      font-weight: 700;
-      color: #fff;
+      overflow: hidden;
       box-shadow: 0 0 80px rgba(124,58,237,0.3);
       position: relative;
+    }
+    .about-teaser-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
     .about-teaser-visual::after {
       content: '';
@@ -766,7 +766,7 @@
           <p>CTF Designs is run by Roman Vaxman — an operations &amp; tech veteran with a background spanning military service, hospitality, and software. Every site we build is treated like it's our own business on the line.</p>
           <a href="about.html" class="btn btn-outline">Meet Roman →</a>
         </div>
-        <div class="about-teaser-visual" aria-label="Roman Vaxman initials">RV</div>
+        <div class="about-teaser-visual"><img src="images/roman-cheddar.jpg" alt="Roman Vaxman and Cheddar" /></div>
       </div>
     </div>
   </section>
