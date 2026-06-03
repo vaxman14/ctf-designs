@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Oh My Dog! Grooming — Murrieta, CA</title>
+<meta name="description" content="Premium dog grooming salon & mobile grooming in Murrieta, CA. Salon in Winchester Square + mobile service in Murrieta & Temecula. Call (951) 239-5226." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --teal: #0d9488;
+    --teal-dark: #0f766e;
+    --teal-pale: #f0fdfa;
+    --teal-light: #99f6e4;
+    --yellow: #fbbf24;
+    --yellow-light: #fde68a;
+    --white: #ffffff;
+    --off-white: #fafffe;
+    --ink: #134e4a;
+    --muted: #6b8f8d;
+    --border: #ccfbf1;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    background: var(--off-white);
+    color: var(--ink);
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    background: var(--teal-dark);
+    padding: 0 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-brand {
+    font-family: 'Righteous', sans-serif;
+    font-size: 1.4rem;
+    color: var(--yellow);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .nav-brand span { color: #fff; }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-links a { text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.85rem; font-weight: 700; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--yellow); }
+  .nav-book { background: var(--yellow) !important; color: var(--teal-dark) !important; padding: 10px 24px !important; border-radius: 100px; font-weight: 800 !important; }
+  .nav-book:hover { background: var(--yellow-light) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--teal-dark);
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+  /* big paw watermark */
+  .hero::after {
+    content: '🐾';
+    position: absolute;
+    right: -40px; bottom: -60px;
+    font-size: 28rem;
+    opacity: 0.04;
+    pointer-events: none;
+    transform: rotate(-15deg);
+  }
+  .hero-left { padding: 80px 64px; position: relative; z-index: 1; }
+  .hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(251,191,36,0.15);
+    border: 1.5px solid rgba(251,191,36,0.4);
+    color: var(--yellow);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 7px 18px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Righteous', sans-serif;
+    font-size: clamp(3.5rem, 7vw, 7rem);
+    color: #fff;
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    margin-bottom: 24px;
+  }
+  .hero h1 span { color: var(--yellow); display: block; }
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    max-width: 420px;
+    margin-bottom: 40px;
+    font-weight: 500;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+  .btn-yellow {
+    background: var(--yellow);
+    color: var(--teal-dark);
+    padding: 15px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 800;
+    transition: background 0.2s;
+  }
+  .btn-yellow:hover { background: var(--yellow-light); }
+  .btn-outline-white {
+    border: 2px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.75);
+    padding: 13px 34px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+  .btn-outline-white:hover { border-color: var(--yellow); color: var(--yellow); }
+  .hero-badges { display: flex; gap: 20px; flex-wrap: wrap; }
+  .hero-badge { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); font-size: 0.82rem; font-weight: 700; }
+  .hero-badge-icon { font-size: 1.1rem; }
+
+  .hero-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 8px;
+    padding: 32px 32px 32px 0;
+    height: 100%;
+  }
+  .hero-right img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    transition: transform 0.4s;
+    min-height: 150px;
+  }
+  .hero-right img:hover { transform: scale(1.04); }
+  .hero-right img:first-child { grid-column: span 2; min-height: 200px; }
+
+  /* ─── WAVE ─── */
+  .wave-top {
+    background: var(--teal-dark);
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .wave-top::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0; top: 0;
+    background: var(--off-white);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 80px 48px; }
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Righteous', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 48px;
+  }
+
+  /* ─── SERVICES ─── */
+  .services-bg { background: var(--teal-pale); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 28px 24px;
+    border: 2px solid transparent;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+  .service-card:hover { border-color: var(--teal-light); box-shadow: 0 8px 24px rgba(13,148,136,0.1); transform: translateY(-3px); }
+  .service-icon { font-size: 2.2rem; margin-bottom: 14px; display: block; }
+  .service-name { font-family: 'Righteous', sans-serif; font-size: 1.15rem; color: var(--ink); margin-bottom: 8px; letter-spacing: 0.02em; }
+  .service-desc { font-size: 0.87rem; color: var(--muted); line-height: 1.65; }
+  .service-badge {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--teal-dark);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-top: 14px;
+  }
+
+  /* ─── MOBILE SECTION ─── */
+  .mobile-section {
+    background: var(--teal);
+    padding: 80px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .mobile-section .section-title { color: #fff; }
+  .mobile-section .section-sub { color: rgba(255,255,255,0.7); }
+  .mobile-section .section-label { color: var(--yellow); }
+  .mobile-img { border-radius: 20px; overflow: hidden; position: relative; }
+  .mobile-img img { width: 100%; display: block; border-radius: 20px; }
+  .mobile-img::after {
+    content: '🚐';
+    position: absolute;
+    bottom: 16px; right: 16px;
+    font-size: 2.5rem;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  }
+  .mobile-perks { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+  .mobile-perk { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.85); font-size: 0.9rem; font-weight: 600; }
+  .mobile-perk-icon { font-size: 1.3rem; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+  /* ─── GALLERY ─── */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 220px;
+    gap: 8px;
+    margin-top: 40px;
+  }
+  .gallery-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; display: block; transition: transform 0.3s; }
+  .gallery-grid img:hover { transform: scale(1.04); }
+  .gallery-grid img.wide { grid-column: span 2; }
+
+  /* ─── AREAS ─── */
+  .areas-bg { background: var(--teal-pale); }
+  .areas-flex { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .area-chip {
+    background: var(--white);
+    border: 2px solid var(--border);
+    color: var(--teal-dark);
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+  .area-chip:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: var(--yellow);
+    padding: 80px 48px;
+    text-align: center;
+  }
+  .cta-section h2 { font-family: 'Righteous', sans-serif; font-size: clamp(2.4rem, 5vw, 4.5rem); color: var(--teal-dark); margin-bottom: 12px; line-height: 1; }
+  .cta-section p { color: rgba(15,118,110,0.7); font-size: 1rem; margin-bottom: 32px; font-weight: 600; }
+  .btn-teal {
+    background: var(--teal-dark);
+    color: #fff;
+    padding: 16px 48px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 800;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+  .btn-teal:hover { background: var(--ink); }
+
+  /* ─── CONTACT ─── */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .contact-card { background: var(--teal-dark); border-radius: 24px; padding: 40px; color: #fff; }
+  .contact-card h3 { font-family: 'Righteous', sans-serif; font-size: 1.6rem; margin-bottom: 8px; color: #fff; letter-spacing: 0.02em; }
+  .contact-card p { color: rgba(255,255,255,0.65); font-size: 0.88rem; margin-bottom: 24px; line-height: 1.6; }
+  .contact-phone { font-family: 'Righteous', sans-serif; font-size: 2.2rem; color: var(--yellow); text-decoration: none; display: block; margin-bottom: 24px; }
+  .contact-phone:hover { color: var(--yellow-light); }
+  .contact-details { display: flex; flex-direction: column; gap: 14px; }
+  .contact-detail { font-size: 0.87rem; color: rgba(255,255,255,0.7); line-height: 1.5; }
+  .contact-detail strong { color: #fff; display: block; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2px; }
+  .location-info { display: flex; flex-direction: column; gap: 20px; }
+  .location-block { background: var(--teal-pale); border-radius: 16px; padding: 24px; border: 2px solid var(--border); }
+  .location-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+  .location-name { font-family: 'Righteous', sans-serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 4px; }
+  .location-addr { font-size: 0.87rem; color: var(--muted); }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--ink); padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-brand { font-family: 'Righteous', sans-serif; font-size: 1.1rem; color: var(--yellow); letter-spacing: 0.02em; }
+  footer p { font-size: 0.78rem; color: #4a7a78; }
+  footer p a { color: var(--teal-light); text-decoration: none; }
+
+  /* ─── DEMO ─── */
+  .demo-notice { position: fixed; bottom: 20px; right: 20px; background: var(--ink); border: 2px solid var(--yellow); color: rgba(255,255,255,0.6); padding: 10px 18px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; z-index: 999; }
+  .demo-notice a { color: var(--yellow); text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .hero, .mobile-section { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 60px 24px; }
+    nav, section, footer, .cta-section, .mobile-section { padding-left: 24px; padding-right: 24px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid img.wide { grid-column: span 1; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">Oh My <span>Dog!</span></a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#mobile">Mobile</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+19512395226" class="nav-book">📞 Book Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <span class="hero-kicker">🐾 Murrieta, CA · Salon + Mobile</span>
+    <h1>Premium<br>Dog<br><span>Grooming.</span></h1>
+    <p class="hero-sub">A team of groomers who genuinely love what they do — and it shows. Salon in Winchester Square, plus mobile grooming that comes right to your door.</p>
+    <div class="hero-ctas">
+      <a href="tel:+19512395226" class="btn-yellow">📞 Call (951) 239-5226</a>
+      <a href="#services" class="btn-outline-white">See Services</a>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge"><span class="hero-badge-icon">🏠</span><span>Salon in Winchester Sq</span></div>
+      <div class="hero-badge"><span class="hero-badge-icon">🚐</span><span>Mobile Available</span></div>
+      <div class="hero-badge"><span class="hero-badge-icon">📅</span><span>Book Online</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="oh-my-dog-assets/hero.jpg" alt="Oh My Dog Grooming" />
+    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" alt="Dog after groom" />
+    <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400&q=80" alt="Groomed dog" />
+    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" alt="Happy pup" />
+    <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=80" alt="Dog" />
+    <img src="https://images.unsplash.com/photo-1534361960057-19f4434a5d84?w=400&q=80" alt="Dog groom" />
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-bg" id="services">
+  <div class="section-label">What We Offer</div>
+  <h2 class="section-title">Grooming Services</h2>
+  <p class="section-sub">From a quick bath to a full groom — every service is done with kindness, patience, and real expertise.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">✂️</span>
+      <div class="service-name">Full Groom</div>
+      <div class="service-desc">Bath, dry, haircut, nail trim, ear cleaning, and finishing touches. Your dog leaves looking (and smelling) amazing.</div>
+      <span class="service-badge">Most Popular</span>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🛁</span>
+      <div class="service-name">Bath & Brush</div>
+      <div class="service-desc">Premium shampoo, thorough blow dry, and a full brush out. Great for dogs who just need a refresh.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💅</span>
+      <div class="service-name">Nail Trim</div>
+      <div class="service-desc">Quick, safe, and stress-free. Available as a standalone or included with any full groom.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🚐</span>
+      <div class="service-name">Mobile Grooming</div>
+      <div class="service-desc">We come to you. Our mobile trailer brings the full salon experience right to your driveway — no travel stress for your pup.</div>
+      <span class="service-badge">Available</span>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🐩</span>
+      <div class="service-name">Breed Styling</div>
+      <div class="service-desc">Doodles, Schnauzers, Poodles, Bichons — we know the breed standards and the styles that look best on your dog.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">😌</span>
+      <div class="service-name">Anxious Dogs Welcome</div>
+      <div class="service-desc">We specialize in patience. If your dog is nervous or has had bad experiences elsewhere, we'll work with them.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MOBILE -->
+<section class="mobile-section" id="mobile">
+  <div>
+    <div class="section-label">Comes to You</div>
+    <h2 class="section-title" style="color:#fff">Mobile Grooming<br>in Murrieta & Temecula</h2>
+    <p class="section-sub">No car ride, no waiting room, no other dogs. Our mobile trailer is a fully equipped salon — parked right outside your home.</p>
+    <div class="mobile-perks">
+      <div class="mobile-perk"><div class="mobile-perk-icon">🏠</div>We come to your driveway</div>
+      <div class="mobile-perk"><div class="mobile-perk-icon">😌</div>Zero travel anxiety for your dog</div>
+      <div class="mobile-perk"><div class="mobile-perk-icon">✂️</div>Full salon services on wheels</div>
+      <div class="mobile-perk"><div class="mobile-perk-icon">📍</div>Serving Murrieta & Temecula</div>
+    </div>
+  </div>
+  <div class="mobile-img">
+    <img src="oh-my-dog-assets/trailer.jpg" alt="Oh My Dog mobile grooming trailer" />
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-label">Fresh Grooms</div>
+  <h2 class="section-title">Right Out of Our Chair</h2>
+  <div class="gallery-grid">
+    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=700&q=80" alt="Dog" class="wide" />
+    <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400&q=80" alt="Dog groom" />
+    <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=80" alt="Dogs" />
+    <img src="https://images.unsplash.com/photo-1534361960057-19f4434a5d84?w=400&q=80" alt="Groomed dog" class="wide" />
+    <img src="https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=400&q=80" alt="Dog" />
+    <img src="oh-my-dog-assets/hero.jpg" alt="Oh My Dog" />
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="areas-bg" id="areas">
+  <div class="section-label">Where We Work</div>
+  <h2 class="section-title">Service Areas</h2>
+  <p class="section-sub">Salon in Winchester Square (Murrieta). Mobile grooming available across the area.</p>
+  <div class="areas-flex">
+    <span class="area-chip">Murrieta</span>
+    <span class="area-chip">Temecula</span>
+    <span class="area-chip">Winchester</span>
+    <span class="area-chip">Wildomar</span>
+    <span class="area-chip">Menifee</span>
+    <span class="area-chip">Lake Elsinore</span>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Book Your Appointment</h2>
+  <div class="contact-grid" style="margin-top:40px;">
+    <div class="contact-card">
+      <h3>Call or Text</h3>
+      <p>Call or text for appointments. We'll get your pup on the schedule.</p>
+      <a href="tel:+19512395226" class="contact-phone">(951) 239-5226</a>
+      <div class="contact-details">
+        <div class="contact-detail"><strong>Booking</strong>Call, text, or book online</div>
+        <div class="contact-detail"><strong>Salon Hours</strong>Call for current availability</div>
+      </div>
+    </div>
+    <div class="location-info">
+      <div class="location-block">
+        <div class="location-label">🏠 Salon Location</div>
+        <div class="location-name">Winchester Square</div>
+        <div class="location-addr">Murrieta, CA 92596</div>
+      </div>
+      <div class="location-block">
+        <div class="location-label">🚐 Mobile Service Area</div>
+        <div class="location-name">Murrieta & Temecula</div>
+        <div class="location-addr">We come to your driveway — call for availability and pricing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Your Dog Deserves<br>the Best.</h2>
+  <p>Call or text to book — salon or mobile, we've got you covered.</p>
+  <a href="tel:+19512395226" class="btn-teal">📞 (951) 239-5226</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">Oh My Dog! Grooming · Murrieta, CA</span>
+  <p>(951) 239-5226 · Winchester Square + Mobile</p>
+  <p>Demo by <a href="https://ctfdesigns.com" target="_blank">CTF Designs</a></p>
+</footer>
+
+<div class="demo-notice">🐾 Demo — <a href="https://ctfdesigns.com" target="_blank">CTF Designs</a></div>
+
+</body>
+</html>
