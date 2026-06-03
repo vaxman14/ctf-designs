@@ -139,23 +139,46 @@
   .hero-badge-icon { font-size: 1.1rem; }
 
   .hero-right {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 8px;
-    padding: 32px 32px 32px 0;
-    height: 100%;
+    position: relative;
+    overflow: hidden;
   }
-  .hero-right img {
+  .carousel {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  }
+  .carousel img {
     width: 100%; height: 100%;
     object-fit: cover;
-    border-radius: 20px;
     display: block;
-    transition: transform 0.4s;
-    min-height: 150px;
+    flex-shrink: 0;
   }
-  .hero-right img:hover { transform: scale(1.04); }
-  .hero-right img:first-child { grid-column: span 2; min-height: 200px; }
+  .carousel-btn {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.85);
+    border: none; border-radius: 50%;
+    width: 44px; height: 44px;
+    font-size: 1rem; cursor: pointer; z-index: 10;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: background 0.2s; color: var(--teal-dark);
+  }
+  .carousel-btn:hover { background: #fff; }
+  .carousel-prev { left: 14px; }
+  .carousel-next { right: 14px; }
+  .carousel-dots {
+    position: absolute;
+    bottom: 16px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 8px;
+  }
+  .carousel-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.2s; padding: 0;
+  }
+  .carousel-dot.active { background: var(--yellow); transform: scale(1.3); }
 
   /* ─── WAVE ─── */
   .wave-top {
@@ -370,14 +393,35 @@
     </div>
   </div>
   <div class="hero-right">
-    <img src="oh-my-dog-assets/hero.jpg" alt="Oh My Dog Grooming" />
-    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" alt="Dog after groom" />
-    <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400&q=80" alt="Groomed dog" />
-    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" alt="Happy pup" />
-    <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=80" alt="Dog" />
-    <img src="https://images.unsplash.com/photo-1534361960057-19f4434a5d84?w=400&q=80" alt="Dog groom" />
+    <div class="carousel" id="heroCarousel">
+      <img src="oh-my-dog-assets/hero.jpg" alt="Oh My Dog Grooming" />
+      <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=80" alt="Dog after groom" />
+      <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=800&q=80" alt="Groomed dog" />
+      <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&q=80" alt="Dogs" />
+      <img src="https://images.unsplash.com/photo-1534361960057-19f4434a5d84?w=800&q=80" alt="Dog groom" />
+    </div>
+    <button class="carousel-btn carousel-prev" onclick="carouselMove(-1)">&#8592;</button>
+    <button class="carousel-btn carousel-next" onclick="carouselMove(1)">&#8594;</button>
+    <div class="carousel-dots" id="carouselDots"></div>
   </div>
 </div>
+<script>
+  const total = 5, track = document.getElementById('heroCarousel'), dotsEl = document.getElementById('carouselDots');
+  let idx = 0;
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  }
+  function goTo(n) {
+    idx = (n + total) % total;
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+  }
+  function carouselMove(dir) { goTo(idx + dir); }
+  setInterval(() => carouselMove(1), 4000);
+</script>
 
 <!-- SERVICES -->
 <section class="services-bg" id="services">
