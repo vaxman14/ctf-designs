@@ -63,9 +63,8 @@
   .hero {
     background: var(--dark);
     min-height: 90vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: stretch;
+    display: flex;
+    align-items: center;
     position: relative;
     overflow: hidden;
   }
@@ -80,12 +79,13 @@
     pointer-events: none;
   }
   .hero-left {
-    padding: 80px 64px;
+    padding: 100px 64px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
     z-index: 1;
+    max-width: 780px;
   }
   .hero-badge {
     display: inline-flex;
@@ -151,21 +151,7 @@
   }
   .btn-ghost:hover { border-color: var(--electric); color: var(--electric); }
 
-  .hero-right {
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-right img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-    opacity: 0.7;
-  }
-  .hero-right::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(to right, var(--dark) 0%, transparent 40%);
-  }
+  .hero-right { display: none; }
 
   /* ─── STATS ─── */
   .stats-bar {
@@ -499,9 +485,6 @@
       <a href="tel:+19517194294" class="btn-electric">⚡ Call (951) 719-4294</a>
       <a href="#services" class="btn-ghost">View Services</a>
     </div>
-  </div>
-  <div class="hero-right">
-    <img src="mellor-electric-assets/solar2.jpg" alt="Solar installation" />
   </div>
 </div>
 
