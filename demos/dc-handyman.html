@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D&C Handyman Services — Temecula, Murrieta & SW Riverside County</title>
+<meta name="description" content="Honest handyman services in Temecula, Murrieta, Menifee & surrounding areas. Electrical, plumbing, HVAC & home repair. Call (951) 401-0620." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Barlow+Condensed:wght@500;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --navy: #0d1f3c;
+    --navy-light: #1a3358;
+    --amber: #f59e0b;
+    --amber-dark: #d97706;
+    --amber-light: #fcd34d;
+    --white: #ffffff;
+    --off-white: #f8f7f4;
+    --slate: #64748b;
+    --light-gray: #f1f5f9;
+    --ink: #0f172a;
+  }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    background: var(--white);
+    color: var(--ink);
+  }
+
+  /* ─── TOP BAR ─── */
+  .top-bar {
+    background: var(--amber);
+    padding: 9px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-bar p { font-size: 0.82rem; font-weight: 600; color: var(--navy); letter-spacing: 0.03em; }
+  .top-bar a { color: var(--navy); font-weight: 800; text-decoration: none; font-size: 0.82rem; }
+
+  /* ─── NAV ─── */
+  nav {
+    background: var(--navy);
+    padding: 0 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-icon {
+    width: 40px; height: 40px;
+    background: var(--amber);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+  }
+  .nav-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--white); letter-spacing: 0.04em; text-transform: uppercase; }
+  .nav-name span { color: var(--amber); }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a { text-decoration: none; color: #94a3b8; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--amber); }
+  .nav-cta { background: var(--amber) !important; color: var(--navy) !important; padding: 10px 24px !important; border-radius: 6px; font-weight: 800 !important; }
+  .nav-cta:hover { background: var(--amber-light) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 88vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+  .hero-left {
+    background: var(--navy);
+    padding: 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245,158,11,0.12);
+    border: 1px solid rgba(245,158,11,0.3);
+    color: var(--amber);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 4px;
+    margin-bottom: 28px;
+    width: fit-content;
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-weight: 900;
+    line-height: 0.95;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+  .hero h1 span { color: var(--amber); }
+  .hero-sub {
+    font-size: 1rem;
+    color: #94a3b8;
+    line-height: 1.7;
+    max-width: 420px;
+    margin-bottom: 40px;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .btn-amber {
+    background: var(--amber);
+    color: var(--navy);
+    padding: 15px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .btn-amber:hover { background: var(--amber-light); }
+  .btn-outline {
+    border: 2px solid #334155;
+    color: #94a3b8;
+    padding: 13px 34px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--amber); color: var(--amber); }
+  .hero-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+    overflow: hidden;
+  }
+  .hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+  }
+  .hero-right img:hover { transform: scale(1.05); }
+
+  /* ─── TRUST BAR ─── */
+  .trust-bar {
+    background: var(--amber);
+    padding: 20px 48px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+  .trust-item { display: flex; align-items: center; gap: 10px; }
+  .trust-icon { font-size: 1.3rem; }
+  .trust-text { font-size: 0.88rem; font-weight: 700; color: var(--navy); letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 80px 48px; }
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    color: var(--navy);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 14px;
+    letter-spacing: 0.01em;
+  }
+  .section-sub {
+    color: var(--slate);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 540px;
+    margin-bottom: 48px;
+  }
+
+  /* ─── SERVICES ─── */
+  .services-bg { background: var(--off-white); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .service-card {
+    background: var(--white);
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 28px 24px;
+    border-top: 4px solid transparent;
+    transition: border-top-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+  .service-card:hover {
+    border-top-color: var(--amber);
+    box-shadow: 0 8px 32px rgba(13,31,60,0.1);
+    transform: translateY(-2px);
+  }
+  .service-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+  .service-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .service-desc { font-size: 0.88rem; color: var(--slate); line-height: 1.6; }
+
+  /* ─── ABOUT ─── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-img-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .about-img-grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+  .about-img-grid img:first-child {
+    grid-column: span 2;
+    aspect-ratio: 16/7;
+  }
+  .checklist { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+  .check-item { display: flex; align-items: flex-start; gap: 12px; }
+  .check-icon {
+    width: 24px; height: 24px;
+    background: var(--amber);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: var(--navy);
+    font-weight: 800;
+  }
+  .check-text { font-size: 0.95rem; color: var(--ink); line-height: 1.5; }
+  .check-text strong { font-weight: 700; color: var(--navy); }
+
+  /* ─── PROJECTS ─── */
+  .projects-bg { background: var(--navy); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 240px 240px;
+    gap: 8px;
+    margin-top: 40px;
+  }
+  .projects-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    filter: brightness(0.9);
+    transition: filter 0.3s, transform 0.3s;
+  }
+  .projects-grid img:hover { filter: brightness(1); transform: scale(1.02); }
+  .projects-grid img:first-child { grid-column: span 2; }
+  .projects-bg .section-title { color: var(--white); }
+  .projects-bg .section-label { color: var(--amber); }
+  .projects-bg .section-sub { color: #94a3b8; }
+
+  /* ─── AREAS ─── */
+  .areas-bg { background: var(--light-gray); }
+  .areas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .area-chip {
+    background: var(--white);
+    border: 2px solid #e2e8f0;
+    color: var(--navy);
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .area-chip:hover { border-color: var(--amber); background: var(--amber); color: var(--navy); }
+
+  /* ─── CTA BANNER ─── */
+  .cta-banner {
+    background: var(--amber);
+    padding: 72px 48px;
+    text-align: center;
+  }
+  .cta-banner h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--navy);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .cta-banner p { color: #1a3358; font-size: 1rem; margin-bottom: 32px; font-weight: 500; }
+  .btn-navy {
+    background: var(--navy);
+    color: var(--white);
+    padding: 16px 44px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+  .btn-navy:hover { background: var(--navy-light); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    padding: 36px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .footer-brand span { color: var(--amber); }
+  footer p { font-size: 0.78rem; color: #64748b; }
+  footer p a { color: var(--amber); text-decoration: none; }
+
+  /* ─── DEMO BADGE ─── */
+  .demo-notice {
+    position: fixed;
+    bottom: 20px; right: 20px;
+    background: var(--navy);
+    border: 1.5px solid var(--amber);
+    color: #94a3b8;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    z-index: 999;
+  }
+  .demo-notice a { color: var(--amber); text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 60px 24px; }
+    nav, section, .top-bar, footer, .cta-banner, .trust-bar { padding-left: 24px; padding-right: 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .projects-grid { grid-template-columns: 1fr 1fr; }
+    .projects-grid img:first-child { grid-column: span 2; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <p>📍 Serving SW Riverside County — Temecula · Murrieta · Menifee & More</p>
+  <a href="tel:+19514010620">☎ (951) 401-0620</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-icon">🔧</div>
+    <span class="nav-name">D&C <span>Handyman</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+19514010620" class="nav-cta">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">✔ Licensed & Insured · 14+ Years</div>
+    <h1>Honest Work.<br><span>Fair Price.</span><br>Done Right.</h1>
+    <p class="hero-sub">Home repair, electrical, plumbing, HVAC & more. Serving Temecula, Murrieta, Menifee, and all of SW Riverside County. No upselling. No surprises.</p>
+    <div class="hero-ctas">
+      <a href="tel:+19514010620" class="btn-amber">Call (951) 401-0620</a>
+      <a href="#services" class="btn-outline">See Services</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="dc-handyman-assets/o-1.jpg" alt="Handyman at work" />
+    <img src="dc-handyman-assets/o-3.jpg" alt="Home repair" />
+    <img src="dc-handyman-assets/o-4.jpg" alt="Electrical work" />
+    <img src="dc-handyman-assets/o-5.jpg" alt="Plumbing" />
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">✅</span><span class="trust-text">Licensed & Insured</span></div>
+  <div class="trust-item"><span class="trust-icon">📅</span><span class="trust-text">14+ Years Experience</span></div>
+  <div class="trust-item"><span class="trust-icon">💰</span><span class="trust-text">Free Estimates</span></div>
+  <div class="trust-item"><span class="trust-icon">📞</span><span class="trust-text">Same-Day Response</span></div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-bg" id="services">
+  <div class="section-label">What We Fix</div>
+  <h2 class="section-title">Our Services</h2>
+  <p class="section-sub">One call covers it all. We handle the jobs homeowners dread — done right the first time.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">🔌</span>
+      <div class="service-name">Electrical</div>
+      <div class="service-desc">Outlets, switches, ceiling fans, fixtures, panel work, and general electrical repairs. Licensed and code-compliant.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🚿</span>
+      <div class="service-name">Plumbing</div>
+      <div class="service-desc">Leaky faucets, toilets, water heaters, drain clearing, and fixture installation.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">❄️</span>
+      <div class="service-name">HVAC</div>
+      <div class="service-desc">Filter changes, thermostat installs, duct work, and basic heating & cooling repairs.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🪚</span>
+      <div class="service-name">Carpentry & Drywall</div>
+      <div class="service-desc">Patching, door & window repairs, trim work, cabinetry, and custom carpentry.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🎨</span>
+      <div class="service-name">Painting & Finishing</div>
+      <div class="service-desc">Interior touch-ups, full room painting, and clean finishing for a polished result.</div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🛠️</span>
+      <div class="service-name">General Home Repair</div>
+      <div class="service-desc">If something's broken, loose, leaking, or just needs fixing — we handle it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-grid">
+      <img src="dc-handyman-assets/o-6.jpg" alt="D&C Handyman work" />
+      <img src="dc-handyman-assets/o-8.jpg" alt="Home repair" />
+      <img src="dc-handyman-assets/plumber-228010_1920.jpg" alt="Plumbing work" />
+    </div>
+    <div>
+      <div class="section-label">Why D&C</div>
+      <h2 class="section-title">Honest Work.<br>That's It.</h2>
+      <p class="section-sub">We started D&C Handyman because homeowners deserve a contractor who shows up, does the job right, and doesn't pad the bill. 14 years later, that's still the whole business model.</p>
+      <div class="checklist">
+        <div class="check-item">
+          <div class="check-icon">✓</div>
+          <div class="check-text"><strong>No upselling.</strong> You get a straight quote for what actually needs to be done.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">✓</div>
+          <div class="check-text"><strong>We show up on time.</strong> Your schedule matters. We respect it.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">✓</div>
+          <div class="check-text"><strong>Licensed & insured.</strong> You're covered from start to finish.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-icon">✓</div>
+          <div class="check-text"><strong>Local to SW Riverside County.</strong> We're your neighbor, not a dispatch center.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-bg" id="projects">
+  <div class="section-label">Our Work</div>
+  <h2 class="section-title">Recent Projects</h2>
+  <p class="section-sub">A look at some of what comes out the other side.</p>
+  <div class="projects-grid">
+    <img src="dc-handyman-assets/o-1.jpg" alt="Project" />
+    <img src="dc-handyman-assets/o-5.jpg" alt="Project" />
+    <img src="dc-handyman-assets/o-3.jpg" alt="Project" />
+    <img src="dc-handyman-assets/o-4.jpg" alt="Project" />
+    <img src="dc-handyman-assets/o-6.jpg" alt="Project" />
+    <img src="dc-handyman-assets/o-8.jpg" alt="Project" />
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="areas-bg" id="contact">
+  <div class="section-label">Where We Work</div>
+  <h2 class="section-title">Service Areas</h2>
+  <p class="section-sub">If you're in SW Riverside County, we're coming to you.</p>
+  <div class="areas-grid">
+    <span class="area-chip">Temecula</span>
+    <span class="area-chip">Murrieta</span>
+    <span class="area-chip">Menifee</span>
+    <span class="area-chip">Wildomar</span>
+    <span class="area-chip">Winchester</span>
+    <span class="area-chip">French Valley</span>
+    <span class="area-chip">Hemet</span>
+    <span class="area-chip">Canyon Lake</span>
+    <span class="area-chip">Fallbrook</span>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <h2>Ready to Get It Fixed?</h2>
+  <p>Free estimates. No obligation. Just call and let's talk about your project.</p>
+  <a href="tel:+19514010620" class="btn-navy">Call (951) 401-0620</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">D&C <span>Handyman</span> Services</span>
+  <p>Serving Temecula · Murrieta · Menifee & SW Riverside County</p>
+  <p>Demo by <a href="https://ctfdesigns.com" target="_blank">CTF Designs</a></p>
+</footer>
+
+<!-- DEMO BADGE -->
+<div class="demo-notice">✦ Demo — <a href="https://ctfdesigns.com" target="_blank">CTF Designs</a></div>
+
+</body>
+</html>
