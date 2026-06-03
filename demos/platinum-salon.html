@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Platinum Salon — Beauty Salon in Murrieta, CA</title>
+<meta name="description" content="The Platinum Salon in Murrieta, CA. Hair, color, nails, waxing & more. Book your appointment today. (951) 696-9035." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; font-weight: 300; color: #1a1a1a; background: #fff; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 40px;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid #f0e8e0;
+  }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #1a1a1a; text-decoration: none; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { text-decoration: none; color: #555; font-size: 0.9rem; letter-spacing: 0.05em; transition: color 0.2s; }
+  .nav-links a:hover { color: #c9874a; }
+  .nav-book { background: #c9874a; color: #fff !important; padding: 10px 22px; border-radius: 4px; }
+  .nav-book:hover { background: #b5733a !important; color: #fff !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fdf6f0 0%, #f5e6d8 50%, #ede0d4 100%);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 100px 20px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '✦'; font-size: 300px; color: rgba(201,135,74,0.06);
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 700px; position: relative; }
+  .hero-eyebrow { font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; color: #c9874a; margin-bottom: 20px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 4.5rem); line-height: 1.1; color: #1a1a1a; margin-bottom: 20px; }
+  .hero h1 em { font-style: italic; color: #c9874a; }
+  .hero-sub { font-size: 1.1rem; color: #666; line-height: 1.7; margin-bottom: 36px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: #c9874a; color: #fff; padding: 15px 32px; border-radius: 4px; text-decoration: none; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.05em; transition: background 0.2s; }
+  .btn-primary:hover { background: #b5733a; }
+  .btn-secondary { border: 1.5px solid #c9874a; color: #c9874a; padding: 15px 32px; border-radius: 4px; text-decoration: none; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.05em; transition: all 0.2s; }
+  .btn-secondary:hover { background: #c9874a; color: #fff; }
+
+  /* STRIP */
+  .strip { background: #c9874a; color: #fff; text-align: center; padding: 14px 20px; font-size: 0.85rem; letter-spacing: 0.1em; }
+
+  /* SECTION */
+  section { padding: 90px 20px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: #c9874a; margin-bottom: 12px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; color: #1a1a1a; margin-bottom: 20px; }
+  .section-body { font-size: 1rem; color: #666; line-height: 1.8; max-width: 600px; }
+
+  /* SERVICES */
+  .services-bg { background: #fdf6f0; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 50px; }
+  .service-card { background: #fff; border-radius: 8px; padding: 32px 28px; border: 1px solid #f0e8e0; transition: box-shadow 0.2s, transform 0.2s; }
+  .service-card:hover { box-shadow: 0 8px 30px rgba(201,135,74,0.12); transform: translateY(-3px); }
+  .service-icon { font-size: 2rem; margin-bottom: 14px; }
+  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 8px; color: #1a1a1a; }
+  .service-card p { font-size: 0.9rem; color: #777; line-height: 1.6; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about-visual {
+    background: linear-gradient(135deg, #f5e6d8, #ede0d4);
+    border-radius: 12px; aspect-ratio: 4/5;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6rem;
+  }
+  .about-text .section-body { margin-bottom: 20px; }
+  .about-stat { display: inline-block; margin-right: 32px; margin-top: 20px; }
+  .about-stat .num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #c9874a; display: block; }
+  .about-stat .lbl { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999; }
+
+  /* REVIEWS */
+  .reviews-bg { background: #1a1a1a; color: #fff; }
+  .reviews-bg .section-label { color: #c9874a; }
+  .reviews-bg .section-title { color: #fff; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 50px; }
+  .review-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 28px; }
+  .stars { color: #c9874a; font-size: 1.1rem; margin-bottom: 12px; }
+  .review-text { font-size: 0.95rem; color: #ccc; line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+  .reviewer { font-size: 0.85rem; color: #888; }
+
+  /* BOOKING */
+  .booking-section { background: linear-gradient(135deg, #fdf6f0, #f5e6d8); text-align: center; }
+  .booking-section .section-title { margin-bottom: 10px; }
+  .booking-section .section-body { margin: 0 auto 36px; text-align: center; }
+  .contact-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+  .contact-pill { background: #fff; border: 1px solid #e8d8c8; border-radius: 50px; padding: 12px 24px; font-size: 0.9rem; color: #1a1a1a; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: box-shadow 0.2s; }
+  .contact-pill:hover { box-shadow: 0 4px 16px rgba(201,135,74,0.2); }
+
+  /* FOOTER */
+  footer { background: #1a1a1a; color: #888; text-align: center; padding: 32px 20px; font-size: 0.85rem; }
+  footer a { color: #c9874a; text-decoration: none; }
+
+  /* DEMO BANNER */
+  .demo-banner {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+    background: #1a1a1a; color: #fff; padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    font-size: 0.9rem; flex-wrap: wrap;
+  }
+  .demo-banner strong { color: #c9874a; }
+  .demo-banner a { background: #c9874a; color: #fff; padding: 8px 18px; border-radius: 4px; text-decoration: none; font-weight: 500; white-space: nowrap; }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-visual { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- DEMO BANNER -->
+<div class="demo-banner">
+  <div>✦ <strong>Free demo</strong> built by CTF Designs — this could be your website in 1 week, starting at $299</div>
+  <a href="https://ctfdesigns.com/contact.html" target="_blank">Get yours →</a>
+</div>
+
+<nav>
+  <a href="#" class="nav-brand">The Platinum Salon</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="tel:9516969035" class="nav-book">Book Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Murrieta's Premier Beauty Salon</div>
+    <h1>Where You Come to <em>Feel Beautiful</em></h1>
+    <p class="hero-sub">Hair, color, nails, waxing & more — in a welcoming space designed around you. Located in Murrieta, CA.</p>
+    <div class="hero-ctas">
+      <a href="tel:9516969035" class="btn-primary">📞 Book an Appointment</a>
+      <a href="#services" class="btn-secondary">View Services</a>
+    </div>
+  </div>
+</section>
+
+<div class="strip">✦ Now Open &nbsp;·&nbsp; 24977 Washington Ave, Ste A, Murrieta, CA &nbsp;·&nbsp; (951) 696-9035</div>
+
+<!-- SERVICES -->
+<section class="services-bg" id="services">
+  <div class="container">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Services</h2>
+    <p class="section-body">From a quick trim to a full color transformation — we do it all, and we do it right.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">✂️</div>
+        <h3>Haircuts & Styling</h3>
+        <p>Precision cuts for women, men, and kids. Walk in looking one way, leave looking like yourself — but better.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Color & Balayage</h3>
+        <p>Highlights, full color, balayage, ombré, and color corrections. We get the color right every time.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💅</div>
+        <h3>Nails</h3>
+        <p>Manicures, pedicures, gel, and nail art. Leave with your hands looking as good as your hair.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧖</div>
+        <h3>Waxing & Brow</h3>
+        <p>Brow shaping, waxing, and facial hair services. Clean lines, every time.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💆</div>
+        <h3>Treatments</h3>
+        <p>Deep conditioning, keratin treatments, and scalp care. Your hair will thank you.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👰</div>
+        <h3>Bridal & Events</h3>
+        <p>Wedding hair, updos, and special occasion styling. We'll make sure you look perfect on the big day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual">💇‍♀️</div>
+      <div class="about-text">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">A Salon Built on Making You Feel Welcome</h2>
+        <p class="section-body">At The Platinum Salon, it's important to us to meet your beauty needs and make you feel at home the moment you walk in. We're a local Murrieta salon with a team that genuinely cares — not just about how you look when you leave, but about the whole experience while you're here.</p>
+        <p class="section-body" style="margin-top:14px">Whether you're a regular or walking in for the first time, you'll find a team that listens.</p>
+        <div>
+          <div class="about-stat"><span class="num">88%</span><span class="lbl">Recommend Us</span></div>
+          <div class="about-stat"><span class="num">$$</span><span class="lbl">Fair Pricing</span></div>
+          <div class="about-stat"><span class="num">615</span><span class="lbl">Happy Followers</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-bg" id="reviews">
+  <div class="container">
+    <div class="section-label">What Clients Say</div>
+    <h2 class="section-title">88% Recommend Us</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Love this place. Always feel welcome and leave looking amazing. My go-to salon in Murrieta."</p>
+        <div class="reviewer">— Local Client</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"They really take their time and make sure you're happy. Best color I've ever had."</p>
+        <div class="reviewer">— Facebook Review</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Super friendly staff and great prices. Found my new regular salon right here in Murrieta."</p>
+        <div class="reviewer">— Returning Client</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking-section" id="contact">
+  <div class="container">
+    <div class="section-label">Ready to Book?</div>
+    <h2 class="section-title">Come See Us</h2>
+    <p class="section-body">Call or email to book your appointment. Walk-ins welcome when we have availability.</p>
+    <div class="hero-ctas">
+      <a href="tel:9516969035" class="btn-primary">📞 (951) 696-9035</a>
+    </div>
+    <div class="contact-row">
+      <a href="mailto:theplatinumsalon@gmail.com" class="contact-pill">✉️ theplatinumsalon@gmail.com</a>
+      <a href="https://maps.google.com/?q=24977+Washington+Ave+Ste+A+Murrieta+CA" target="_blank" class="contact-pill">📍 24977 Washington Ave, Ste A, Murrieta</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p style="margin-bottom:8px">© 2026 The Platinum Salon · Murrieta, CA · <a href="tel:9516969035">(951) 696-9035</a></p>
+  <p style="font-size:0.75rem; opacity:0.5">Demo site built by <a href="https://ctfdesigns.com">CTF Designs</a></p>
+</footer>
+
+</body>
+</html>
