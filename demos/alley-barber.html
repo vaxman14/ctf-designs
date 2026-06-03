@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Alley Barber — Temecula's Premier Barbershop</title>
+<meta name="description" content="Old-school craft, modern skill. Fades, straight razor shaves & hot towel treatments in Temecula, CA. Book your chair today." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IM+Fell+English:ital@0;1&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --ox: #6b1a2a;
+    --ox-dark: #4a0f1c;
+    --ox-light: #8b2535;
+    --cream: #f5f0e8;
+    --cream-dark: #ede5d4;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --ink: #1c1008;
+    --warm-gray: #6b5f52;
+  }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    background: var(--cream);
+    color: var(--ink);
+    /* subtle noise texture */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  /* ─── STRIPE RIBBON ─── */
+  .top-ribbon {
+    height: 6px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--ox) 0px, var(--ox) 20px,
+      #fff 20px, #fff 30px,
+      #1a3a6b 30px, #1a3a6b 50px,
+      #fff 50px, #fff 60px
+    );
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    background: var(--ox-dark);
+    padding: 0 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+  .nav-scissor {
+    font-size: 1.6rem;
+    color: var(--gold);
+    transform: rotate(-45deg);
+    display: inline-block;
+  }
+  .nav-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+  }
+  .nav-name span { color: var(--gold); }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: #c4b49e;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold) !important;
+    color: var(--ox-dark) !important;
+    padding: 10px 24px !important;
+    border-radius: 2px;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 92vh;
+    background:
+      linear-gradient(160deg, rgba(26,8,10,0.92) 0%, rgba(74,15,28,0.85) 60%, rgba(26,8,10,0.95) 100%),
+      url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1400&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    padding: 80px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    background: linear-gradient(to top, var(--cream), transparent);
+  }
+  .hero-inner {
+    max-width: 700px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--gold);
+    padding: 7px 18px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+  .hero-badge span {
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.2rem, 7vw, 6.5rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--cream);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+  }
+  .hero-rule {
+    width: 80px;
+    height: 2px;
+    background: var(--gold);
+    margin: 24px 0;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: #c4b49e;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 520px;
+    font-style: italic;
+    font-family: 'IM Fell English', serif;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--ox-dark);
+    padding: 16px 40px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-outline-gold {
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 14px 38px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .btn-outline-gold:hover { background: var(--gold); color: var(--ox-dark); }
+
+  /* ─── DIVIDER ─── */
+  .ornament {
+    text-align: center;
+    padding: 48px 40px 0;
+    color: var(--gold);
+    font-size: 1.4rem;
+    letter-spacing: 0.5em;
+  }
+  .ornament::before, .ornament::after {
+    content: '——';
+    color: var(--cream-dark);
+    font-size: 0.9rem;
+    margin: 0 16px;
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 80px 48px; }
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--ox-dark);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    color: var(--warm-gray);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 540px;
+    margin-bottom: 48px;
+  }
+
+  /* ─── STATS BAR ─── */
+  .stats {
+    background: var(--ox-dark);
+    border-top: 3px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+    padding: 40px 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .stat {
+    text-align: center;
+    padding: 0 20px;
+    border-right: 1px solid rgba(201,168,76,0.3);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c4b49e;
+  }
+
+  /* ─── SERVICES ─── */
+  .services-bg { background: var(--cream-dark); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px;
+  }
+  .service-card {
+    background: var(--cream);
+    padding: 32px 28px;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .service-card:hover {
+    border-left-color: var(--gold);
+    transform: translateX(4px);
+  }
+  .service-icon { font-size: 1.6rem; margin-bottom: 12px; }
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ox-dark);
+    margin-bottom: 6px;
+  }
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--warm-gray);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .service-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--gold);
+  }
+  .service-duration {
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-left: 6px;
+  }
+
+  /* ─── TEAM ─── */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+  }
+  .barber-card {
+    text-align: center;
+  }
+  .barber-avatar {
+    width: 100px;
+    height: 100px;
+    background: var(--ox);
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--gold);
+    border: 3px solid var(--gold);
+  }
+  .barber-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ox-dark);
+    margin-bottom: 4px;
+  }
+  .barber-title {
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ─── REVIEWS ─── */
+  .reviews-bg { background: var(--ox-dark); }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .review-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 2px;
+    padding: 28px;
+  }
+  .review-stars {
+    color: var(--gold);
+    font-size: 1rem;
+    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+  }
+  .review-text {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #d4c8b8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .review-author {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .reviews-bg .section-title { color: var(--cream); }
+  .reviews-bg .section-label { color: var(--gold); }
+  .reviews-bg .section-sub { color: #c4b49e; }
+
+  /* ─── HOURS ─── */
+  .hours-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .hours-table { width: 100%; border-collapse: collapse; }
+  .hours-table tr { border-bottom: 1px solid var(--cream-dark); }
+  .hours-table td { padding: 14px 0; font-size: 0.92rem; color: var(--ink); }
+  .hours-table td:last-child { text-align: right; font-weight: 700; color: var(--ox); }
+  .contact-block { display: flex; flex-direction: column; gap: 20px; }
+  .contact-item { display: flex; align-items: flex-start; gap: 14px; }
+  .contact-icon { font-size: 1.2rem; width: 28px; text-align: center; flex-shrink: 0; margin-top: 2px; }
+  .contact-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 2px; }
+  .contact-val { font-size: 0.98rem; color: var(--ink); font-weight: 400; }
+  .contact-val a { color: var(--ox); text-decoration: none; }
+  .contact-val a:hover { color: var(--gold); }
+
+  /* ─── CTA BANNER ─── */
+  .cta-banner {
+    background: var(--ox);
+    border-top: 3px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+    padding: 64px 48px;
+    text-align: center;
+  }
+  .cta-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .cta-banner h2 em { font-style: italic; color: var(--gold); font-weight: 400; }
+  .cta-banner p {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    color: #c4b49e;
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ox-dark);
+    border-top: 2px solid rgba(201,168,76,0.3);
+    padding: 40px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--cream);
+  }
+  .footer-brand span { color: var(--gold); }
+  footer p {
+    font-size: 0.78rem;
+    color: #8a7a6a;
+    letter-spacing: 0.06em;
+  }
+  footer p a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.72rem;
+  }
+
+  /* ─── DEMO BADGE ─── */
+  .demo-notice {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--ox-dark);
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    padding: 10px 18px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    z-index: 999;
+    font-family: 'Lato', sans-serif;
+  }
+  .demo-notice a {
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .demo-notice a:hover { color: var(--gold-light); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section, .hero, .stats, .cta-banner { padding-left: 24px; padding-right: 24px; }
+    .stats { grid-template-columns: 1fr; gap: 24px; }
+    .stat { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 24px; }
+    .hours-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-ribbon"></div>
+
+<nav>
+  <a href="#" class="nav-brand">
+    <span class="nav-scissor">✂</span>
+    <span class="nav-name">The Alley <span>Barber</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#team">Our Barbers</a>
+    <a href="#hours">Hours</a>
+    <a href="https://thealleybarber.setmore.com/" target="_blank" class="nav-cta">Book Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span>✦ Temecula, California ✦</span>
+    </div>
+    <h1>Old-School<br>Craft. <em>Modern</em><br>Skill.</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Whatever happened to knowing your barber by name? Those days never went anywhere — not at The Alley Barber. Walk in as a client, leave as a regular.</p>
+    <div class="hero-ctas">
+      <a href="https://thealleybarber.setmore.com/" target="_blank" class="btn-gold">Book Your Chair</a>
+      <a href="#services" class="btn-outline-gold">View Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">532+</div>
+    <div class="stat-label">Five-Star Reviews</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">6</div>
+    <div class="stat-label">Expert Barbers</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">7</div>
+    <div class="stat-label">Days a Week</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-bg" id="services">
+  <div class="ornament">✦</div>
+  <div style="margin-top:40px">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">The Full Menu</h2>
+    <p class="section-sub">From a clean fade to a full straight-razor shave with hot lather — every service is done the right way, by hand, by someone who takes pride in the craft.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">✂️</div>
+      <div class="service-name">Men's Haircut</div>
+      <div class="service-desc">Your style, executed clean. Fades, tapers, classics — whatever you came for.</div>
+      <div class="service-price">$30 <span class="service-duration">· 30 min</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔥</div>
+      <div class="service-name">The Alley Special</div>
+      <div class="service-desc">Haircut + hot towel beard shave. The full treatment. Walk out looking sharp.</div>
+      <div class="service-price">$55 <span class="service-duration">· 60 min</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🪒</div>
+      <div class="service-name">Hot Towel Shave</div>
+      <div class="service-desc">Hot lather, straight razor, warm towel finish. Old school luxury. Done right.</div>
+      <div class="service-price">$30 <span class="service-duration">· 60 min</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🧔</div>
+      <div class="service-name">Beard Trim & Line-Up</div>
+      <div class="service-desc">Shaped, lined, and finished with straight razor precision. $20 line-up only.</div>
+      <div class="service-price">From $20 <span class="service-duration">· 20 min</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👤</div>
+      <div class="service-name">Head Shave</div>
+      <div class="service-desc">Clean, smooth, precise. The whole head — not a spot missed.</div>
+      <div class="service-price">$30 <span class="service-duration">· 30 min</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <div class="service-name">House Call</div>
+      <div class="service-desc">We come to you. Great for mobility, events, or when the chair should come to the king.</div>
+      <div class="service-price">$100 <span class="service-duration">· 60 min</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-label">Meet the Crew</div>
+  <h2 class="section-title">Your Barbers</h2>
+  <p class="section-sub">Six skilled hands, one standard: make you look good every single time.</p>
+  <div class="team-grid">
+    <div class="barber-card">
+      <div class="barber-avatar">C</div>
+      <div class="barber-name">Cam</div>
+      <div class="barber-title">Master Barber</div>
+    </div>
+    <div class="barber-card">
+      <div class="barber-avatar">R</div>
+      <div class="barber-name">Rico</div>
+      <div class="barber-title">Fade Specialist</div>
+    </div>
+    <div class="barber-card">
+      <div class="barber-avatar">A</div>
+      <div class="barber-name">Anthony</div>
+      <div class="barber-title">Straight Razor Expert</div>
+    </div>
+    <div class="barber-card">
+      <div class="barber-avatar">A</div>
+      <div class="barber-name">Andrew</div>
+      <div class="barber-title">Barber</div>
+    </div>
+    <div class="barber-card">
+      <div class="barber-avatar">L</div>
+      <div class="barber-name">Leo</div>
+      <div class="barber-title">Barber</div>
+    </div>
+    <div class="barber-card">
+      <div class="barber-avatar">J</div>
+      <div class="barber-name">Jonathan</div>
+      <div class="barber-title">Barber</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-bg" id="reviews">
+  <div class="ornament" style="padding-top:0; margin-bottom:20px; color:var(--gold);">✦</div>
+  <div class="section-label">What People Say</div>
+  <h2 class="section-title">532+ Five-Star Reviews</h2>
+  <p class="section-sub">Don't take our word for it.</p>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Very nice environment. The lady greeted us and was sweet and helpful. We had a great experience — the best in Temecula hands down."</p>
+      <div class="review-author">— Verified Yelp Review</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"This is a little hidden gem. Family-run and they couldn't be sweeter. Cam absolutely nailed my fade. We will definitely be back."</p>
+      <div class="review-author">— Verified Google Review</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I saw this place a few times and finally decided to try it. Excellent spot. The food service was really good — atmosphere and staff on point. Will be back."</p>
+      <div class="review-author">— Verified Yelp Review</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS & CONTACT -->
+<section id="hours">
+  <div class="ornament" style="padding-top:0; margin-bottom:40px;">✦</div>
+  <div class="hours-grid">
+    <div>
+      <div class="section-label">When We're Open</div>
+      <h2 class="section-title">Hours</h2>
+      <table class="hours-table">
+        <tr><td>Monday – Friday</td><td>9:00 AM – 6:00 PM</td></tr>
+        <tr><td>Saturday</td><td>9:00 AM – 5:00 PM</td></tr>
+        <tr><td>Sunday</td><td>9:00 AM – 4:00 PM</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="section-label">Find Us</div>
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-block">
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <div>
+            <div class="contact-label">Address</div>
+            <div class="contact-val">43057 Margarita Rd, Suite C104<br>Temecula, CA 92592</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-val"><a href="tel:+19516785796">(951) 678-5796</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">✉️</span>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val"><a href="mailto:info@thealleybarber.com">info@thealleybarber.com</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <h2>Your Chair is <em>Waiting.</em></h2>
+  <p>Book online in under a minute. Walk in when it suits you.</p>
+  <a href="https://thealleybarber.setmore.com/" target="_blank" class="btn-gold">Book Your Appointment</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">The Alley <span>Barber</span></div>
+  <p>43057 Margarita Rd · Temecula, CA 92592 · (951) 678-5796</p>
+  <p>Demo by <a href="https://ctfdesigns.com" target="_blank">CTF Designs</a></p>
+</footer>
+
+<!-- DEMO BADGE -->
+<div class="demo-notice">
+  ✦ Free Demo — <a href="https://ctfdesigns.com" target="_blank">CTF Designs</a>
+</div>
+
+</body>
+</html>
