@@ -102,8 +102,8 @@
   .hero {
     min-height: 92vh;
     background:
-      linear-gradient(160deg, rgba(26,8,10,0.92) 0%, rgba(74,15,28,0.85) 60%, rgba(26,8,10,0.95) 100%),
-      url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1400&q=80') center/cover no-repeat;
+      linear-gradient(160deg, rgba(26,8,10,0.88) 0%, rgba(74,15,28,0.80) 60%, rgba(26,8,10,0.92) 100%),
+      url('https://static.wixstatic.com/media/11062b_d9801124f3cb4deca350acfd66b547cff000.jpg/v1/fill/w_1400,h_900,al_c,q_85,enc_avif,quality_auto/11062b_d9801124f3cb4deca350acfd66b547cff000.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     padding: 80px 48px;
@@ -392,6 +392,27 @@
   .reviews-bg .section-label { color: var(--gold); }
   .reviews-bg .section-sub { color: #c4b49e; }
 
+  /* ─── GALLERY ─── */
+  .gallery-bg { background: var(--ink); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin-top: 40px;
+  }
+  .gallery-grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(20%);
+    transition: filter 0.3s, transform 0.3s;
+  }
+  .gallery-grid img:hover { filter: grayscale(0%); transform: scale(1.03); }
+  .gallery-bg .section-title { color: var(--cream); }
+  .gallery-bg .section-label { color: var(--gold); }
+  .gallery-bg .section-sub { color: #c4b49e; }
+
   /* ─── HOURS ─── */
   .hours-grid {
     display: grid;
@@ -659,44 +680,91 @@
   </div>
 </section>
 
+<!-- GALLERY -->
+<section class="gallery-bg" id="gallery">
+  <div class="section-label">The Work</div>
+  <h2 class="section-title">Fresh Cuts. Every Time.</h2>
+  <p class="section-sub">A glimpse at what walks out the door every day.</p>
+  <div class="gallery-grid">
+    <img src="https://static.wixstatic.com/media/ab962f_4dfca48131f040fc8280ecde2e3a2043~mv2.png/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/ab962f_4dfca48131f040fc8280ecde2e3a2043~mv2.png" alt="Haircut" loading="lazy" />
+    <img src="https://static.wixstatic.com/media/ab962f_4e234137fc374ed6b4f4364cd95e5845~mv2.png/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/ab962f_4e234137fc374ed6b4f4364cd95e5845~mv2.png" alt="Fade" loading="lazy" />
+    <img src="https://static.wixstatic.com/media/ab962f_e35ed373a04d4e7092ef6e52a99983e1~mv2.png/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/ab962f_e35ed373a04d4e7092ef6e52a99983e1~mv2.png" alt="Barbershop" loading="lazy" />
+    <img src="https://static.wixstatic.com/media/ab962f_8a652f8e36ed48c195320d9755ecf1aa~mv2.png/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/ab962f_8a652f8e36ed48c195320d9755ecf1aa~mv2.png" alt="Shave" loading="lazy" />
+    <img src="https://static.wixstatic.com/media/ab962f_b0f839ed67914b98acba8f16dcd50c35~mv2.png/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/ab962f_b0f839ed67914b98acba8f16dcd50c35~mv2.png" alt="Cut" loading="lazy" />
+    <img src="https://static.wixstatic.com/media/ab962f_b2f610daed3b49ebb2f848f0b1651d65~mv2.png/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/ab962f_b2f610daed3b49ebb2f848f0b1651d65~mv2.png" alt="Style" loading="lazy" />
+    <img src="https://static.wixstatic.com/media/ab962f_dc5cb73a4b1f4447b9bb7f7e3821c38a~mv2.png/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/ab962f_dc5cb73a4b1f4447b9bb7f7e3821c38a~mv2.png" alt="Design" loading="lazy" />
+    <img src="https://static.wixstatic.com/media/ab962f_50ed3e3ff54d4551bafafeaa0e7698ec~mv2.png/v1/fill/w_400,h_400,al_c,q_85,enc_avif,quality_auto/ab962f_50ed3e3ff54d4551bafafeaa0e7698ec~mv2.png" alt="Trim" loading="lazy" />
+  </div>
+</section>
+
 <!-- HOURS & CONTACT -->
 <section id="hours">
   <div class="ornament" style="padding-top:0; margin-bottom:40px;">✦</div>
-  <div class="hours-grid">
+  <div class="section-label">Two Locations</div>
+  <h2 class="section-title">Hours & Contact</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:40px;">
+    <!-- Temecula -->
     <div>
-      <div class="section-label">When We're Open</div>
-      <h2 class="section-title">Hours</h2>
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--ox-dark);margin-bottom:4px;">Temecula</div>
+      <div style="font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">Plaza Del Sol Shopping Center</div>
       <table class="hours-table">
-        <tr><td>Monday – Friday</td><td>9:00 AM – 6:00 PM</td></tr>
+        <tr><td>Mon – Fri</td><td>9:00 AM – 6:00 PM</td></tr>
         <tr><td>Saturday</td><td>9:00 AM – 5:00 PM</td></tr>
         <tr><td>Sunday</td><td>9:00 AM – 4:00 PM</td></tr>
       </table>
-    </div>
-    <div>
-      <div class="section-label">Find Us</div>
-      <h2 class="section-title">Contact</h2>
-      <div class="contact-block">
+      <div class="contact-block" style="margin-top:24px;">
         <div class="contact-item">
           <span class="contact-icon">📍</span>
           <div>
             <div class="contact-label">Address</div>
-            <div class="contact-val">43057 Margarita Rd, Suite C104<br>Temecula, CA 92592</div>
+            <div class="contact-val">43053 Margarita Rd, Suite C104<br>Temecula, CA 92592</div>
           </div>
         </div>
         <div class="contact-item">
           <span class="contact-icon">📞</span>
           <div>
-            <div class="contact-label">Phone</div>
+            <div class="contact-label">Call or Text</div>
             <div class="contact-val"><a href="tel:+19516785796">(951) 678-5796</a></div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Rancho Cucamonga -->
+    <div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--ox-dark);margin-bottom:4px;">Rancho Cucamonga</div>
+      <div style="font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">Inland Empire</div>
+      <table class="hours-table">
+        <tr><td>Mon – Fri</td><td>9:00 AM – 6:00 PM</td></tr>
+        <tr><td>Saturday</td><td>9:00 AM – 5:00 PM</td></tr>
+        <tr><td>Sunday</td><td>9:00 AM – 4:00 PM</td></tr>
+      </table>
+      <div class="contact-block" style="margin-top:24px;">
         <div class="contact-item">
-          <span class="contact-icon">✉️</span>
+          <span class="contact-icon">📍</span>
           <div>
-            <div class="contact-label">Email</div>
-            <div class="contact-val"><a href="mailto:info@thealleybarber.com">info@thealleybarber.com</a></div>
+            <div class="contact-label">Address</div>
+            <div class="contact-val">7900 Haven Ave #25<br>Rancho Cucamonga, CA 91730</div>
           </div>
         </div>
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <div>
+            <div class="contact-label">Call or Text</div>
+            <div class="contact-val"><a href="tel:+19095307531">(909) 530-7531</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-block" style="margin-top:40px;border-top:1px solid var(--cream-dark);padding-top:32px;">
+    <div class="contact-item">
+      <span class="contact-icon">✉️</span>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-val"><a href="mailto:info@thealleybarber.com">info@thealleybarber.com</a></div>
       </div>
     </div>
   </div>
@@ -712,7 +780,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">The Alley <span>Barber</span></div>
-  <p>43057 Margarita Rd · Temecula, CA 92592 · (951) 678-5796</p>
+  <p>Temecula · (951) 678-5796 &nbsp;|&nbsp; Rancho Cucamonga · (909) 530-7531</p>
   <p>Demo by <a href="https://ctfdesigns.com" target="_blank">CTF Designs</a></p>
 </footer>
 
