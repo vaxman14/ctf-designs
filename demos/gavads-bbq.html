@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gava D's BBQ — BBQ Catering Temecula & Murrieta, CA</title>
+<meta name="description" content="Authentic low and slow wood smoked BBQ catering in Temecula, CA. Weddings, corporate events, parties. Call (951) 491-9990." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; font-weight: 300; color: #1a1a1a; background: #fff; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 40px;
+    background: rgba(20,10,5,0.97); backdrop-filter: blur(8px);
+    border-bottom: 2px solid #c0392b;
+  }
+  .nav-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: #fff; text-decoration: none; letter-spacing: 0.08em; }
+  .nav-brand span { color: #e74c3c; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { text-decoration: none; color: #ccc; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; display: flex; align-items: center; }
+  .nav-links a:hover { color: #e74c3c; }
+  .nav-cta { background: #c0392b; color: #fff !important; padding: 10px 22px; border-radius: 3px; line-height: 1; }
+  .nav-cta:hover { background: #a93226 !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #1a0a05 0%, #2d1408 50%, #4a1e0a 100%);
+    display: flex; align-items: center;
+    padding: 120px 40px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero-smoke {
+    position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse at 70% 40%, rgba(192,57,43,0.15) 0%, transparent 70%),
+                radial-gradient(ellipse at 20% 80%, rgba(230,126,34,0.1) 0%, transparent 60%);
+  }
+  .hero-inner { max-width: 680px; position: relative; z-index: 1; }
+  .hero-eyebrow { font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase; color: #e74c3c; margin-bottom: 16px; }
+  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 8vw, 7rem); line-height: 0.95; color: #fff; margin-bottom: 20px; letter-spacing: 0.03em; }
+  .hero h1 span { color: #e74c3c; }
+  .hero-sub { font-size: 1.1rem; color: #aaa; line-height: 1.7; margin-bottom: 36px; max-width: 500px; }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary { background: #c0392b; color: #fff; padding: 16px 36px; border-radius: 3px; text-decoration: none; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; transition: background 0.2s; }
+  .btn-primary:hover { background: #a93226; }
+  .btn-outline { border: 2px solid #e74c3c; color: #e74c3c; padding: 14px 34px; border-radius: 3px; text-decoration: none; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.2s; }
+  .btn-outline:hover { background: #e74c3c; color: #fff; }
+
+  /* FIRE STRIP */
+  .strip { background: #c0392b; padding: 16px 40px; text-align: center; color: #fff; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; }
+
+  /* MENU SECTION */
+  .menu-bg { background: #f9f5f2; }
+  section { padding: 90px 40px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: #c0392b; margin-bottom: 10px; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); color: #1a1a1a; margin-bottom: 16px; letter-spacing: 0.03em; line-height: 1; }
+  .section-body { font-size: 1rem; color: #666; line-height: 1.8; max-width: 600px; }
+
+  .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3px; margin-top: 50px; }
+  .menu-card { background: #fff; padding: 32px 28px; border-top: 4px solid transparent; transition: border-color 0.2s; }
+  .menu-card:hover { border-color: #c0392b; }
+  .menu-icon { font-size: 2.5rem; margin-bottom: 14px; }
+  .menu-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.05em; color: #1a1a1a; margin-bottom: 8px; }
+  .menu-card p { font-size: 0.9rem; color: #777; line-height: 1.6; }
+
+  /* ABOUT / EVENTS */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+  .about-visual {
+    background: linear-gradient(135deg, #4a1e0a, #c0392b);
+    border-radius: 4px; aspect-ratio: 4/5;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8rem; flex-direction: column; gap: 12px;
+  }
+  .about-visual p { color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.2em; }
+  .about-text .section-body { margin-bottom: 16px; }
+  .event-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .tag { background: #f9f5f2; border: 1px solid #e8d5cc; border-radius: 50px; padding: 8px 18px; font-size: 0.85rem; color: #555; }
+
+  /* REVIEWS */
+  .reviews-dark { background: #14080a; }
+  .reviews-dark .section-label { color: #e74c3c; }
+  .reviews-dark .section-title { color: #fff; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 50px; }
+  .review-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; padding: 30px; border-top: 3px solid #c0392b; }
+  .review-stars { color: #e74c3c; font-size: 1rem; margin-bottom: 14px; }
+  .review-text { font-size: 0.95rem; color: #bbb; line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+  .review-name { font-size: 0.85rem; color: #666; }
+
+  /* CTA */
+  .cta-section { background: #c0392b; text-align: center; padding: 80px 40px; }
+  .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); color: #fff; letter-spacing: 0.03em; margin-bottom: 10px; }
+  .cta-section p { color: rgba(255,255,255,0.8); font-size: 1.05rem; margin-bottom: 28px; }
+  .cta-phone { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; font-weight: 400; color: #fff; text-decoration: none; display: block; margin-bottom: 8px; letter-spacing: 0.08em; }
+  .cta-email { color: rgba(255,255,255,0.7); font-size: 0.95rem; margin-bottom: 32px; display: block; text-decoration: none; }
+  .btn-white { background: #fff; color: #c0392b; padding: 16px 40px; border-radius: 3px; text-decoration: none; font-size: 1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; transition: background 0.2s; }
+  .btn-white:hover { background: #f0f0f0; }
+
+  /* FOOTER */
+  footer { background: #0a0505; color: #555; text-align: center; padding: 28px 20px; font-size: 0.85rem; }
+  footer a { color: #e74c3c; text-decoration: none; }
+
+  /* DEMO BANNER */
+  .demo-banner {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+    background: #1a1a1a; color: #fff; padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    font-size: 0.9rem; flex-wrap: wrap;
+  }
+  .demo-banner strong { color: #e74c3c; }
+  .demo-banner a { background: #c0392b; color: #fff; padding: 8px 18px; border-radius: 3px; text-decoration: none; font-weight: 500; white-space: nowrap; }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-visual { display: none; }
+    section { padding: 60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <div>🔥 <strong>Free demo</strong> built by CTF Designs — your site could look like this in 1 week, from $499</div>
+  <a href="https://ctfdesigns.com/contact.html" target="_blank">Get yours →</a>
+</div>
+
+<nav>
+  <a href="#" class="nav-brand">GAVA D'S <span>BBQ</span></a>
+  <div class="nav-links">
+    <a href="#menu">Menu</a>
+    <a href="#events">Events</a>
+    <a href="#reviews">Reviews</a>
+    <a href="tel:9514919990" class="nav-cta">Book Now</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-smoke"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Temecula, CA · Family Owned & Operated · Fully Licensed & Insured</div>
+    <h1>AUTHENTIC<br><span>LOW &</span><br>SLOW BBQ</h1>
+    <p class="hero-sub">Wood smoked & Santa Maria style BBQ catering for weddings, corporate events, and backyard parties across Temecula, Murrieta & surrounding areas.</p>
+    <div class="hero-ctas">
+      <a href="tel:9514919990" class="btn-primary">🔥 Book Your Event</a>
+      <a href="#menu" class="btn-outline">See The Menu</a>
+    </div>
+  </div>
+</section>
+
+<div class="strip">🔥 &nbsp; Weddings · Corporate Events · Backyard Parties · Competitions &nbsp; 🔥</div>
+
+<section class="menu-bg" id="menu">
+  <div class="container">
+    <div class="section-label">What We Smoke</div>
+    <h2 class="section-title">THE MENU</h2>
+    <p class="section-body">Everything cooked on-site over hardwood with only the freshest ingredients. Real smoke. Real flavor. No shortcuts.</p>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-icon">🥩</div>
+        <h3>Brisket</h3>
+        <p>Texas-style low and slow beef brisket, smoked until it falls apart. The centerpiece of any event.</p>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">🍖</div>
+        <h3>Ribs & Rib Tips</h3>
+        <p>Pork ribs and rib tips with a bark that'll make your guests come back for thirds.</p>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">🐖</div>
+        <h3>Pulled Pork</h3>
+        <p>Slow smoked pulled pork, tender and juicy. A crowd favorite at every event.</p>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">🐄</div>
+        <h3>Tri-Tip</h3>
+        <p>Santa Maria style tri-tip, perfectly seasoned and cooked over live hardwood fire.</p>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">🍗</div>
+        <h3>Chicken</h3>
+        <p>Smoked chicken halves with crispy skin and juicy meat. Simple, perfect, delicious.</p>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">🍑</div>
+        <h3>Sides & Dessert</h3>
+        <p>Cole slaw, jalapeño poppers, moink balls, and the legendary peach cobbler.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="events">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual">🔥<p>Est. Temecula</p></div>
+      <div class="about-text">
+        <div class="section-label">We Cater It All</div>
+        <h2 class="section-title">SPECIALIZING IN WEDDINGS & RUSTIC EVENTS</h2>
+        <p class="section-body">We cook your food on-site over hardwood with only the freshest ingredients. No reheated trays — everything is made fresh at your event, the way BBQ is supposed to be.</p>
+        <p class="section-body">Local, family-owned, and fully licensed & insured. We treat every event as if it were our own — whether it's 30 guests or 300.</p>
+        <div class="event-tags">
+          <span class="tag">💍 Weddings</span>
+          <span class="tag">🏢 Corporate Lunches</span>
+          <span class="tag">🎉 Backyard Parties</span>
+          <span class="tag">🎓 Graduations</span>
+          <span class="tag">⚾ Team Events</span>
+          <span class="tag">🏆 Competitions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews-dark" id="reviews">
+  <div class="container">
+    <div class="section-label">What Clients Say</div>
+    <h2 class="section-title">THE VERDICT</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"You will not be disappointed! The food is amazing! Elliot and his wife were wonderful to work with. Our guests raved about the food."</p>
+        <div class="review-name">— Joanie B.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The food arrived on time in the quantity specified and was a huge hit with our guests. Smoked ribs, rib tips, pulled pork, moink balls... every single thing was incredible."</p>
+        <div class="review-name">— Doug B.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Had them cater my grandma's 80th birthday party and it was AMAZING! Even my picky 7-year-old wanted seconds. The peach cobbler was to die for."</p>
+        <div class="review-name">— Lisette T.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <h2>READY TO BOOK YOUR EVENT?</h2>
+  <p>Serving Temecula, Murrieta, Wildomar, Fallbrook, Canyon Lake, Menifee & surrounding areas.</p>
+  <a href="tel:9514919990" class="cta-phone">(951) 491-9990</a>
+  <a href="mailto:info@gavadsbbq.com" class="cta-email">info@GavaDsBBQ.com</a>
+  <a href="tel:9514919990" class="btn-white">🔥 Call to Book</a>
+</section>
+
+<footer>
+  <p>© 2026 Gava D's BBQ · Temecula, CA · <a href="tel:9514919990">(951) 491-9990</a> · <a href="mailto:info@gavadsbbq.com">info@GavaDsBBQ.com</a></p>
+  <p style="margin-top:6px;font-size:0.75rem;opacity:0.5">Demo site built by <a href="https://ctfdesigns.com">CTF Designs</a></p>
+</footer>
+
+</body>
+</html>
