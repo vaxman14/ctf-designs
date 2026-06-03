@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Smitty's Landscape Construction — Temecula & Murrieta, CA</title>
+<meta name="description" content="25+ years of landscaping, concrete, pools & outdoor living in Temecula & Murrieta. Free estimates. Call (951) 760-8750." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; font-weight: 300; color: #1a1a1a; background: #fff; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 40px;
+    background: rgba(15,30,15,0.96); backdrop-filter: blur(8px);
+    border-bottom: 2px solid #4a7c3a;
+  }
+  .nav-brand { font-family: 'Oswald', sans-serif; font-size: 1.4rem; color: #fff; text-decoration: none; letter-spacing: 0.05em; }
+  .nav-brand span { color: #7cba5a; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { text-decoration: none; color: #ccc; font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; display: flex; align-items: center; }
+  .nav-links a:hover { color: #7cba5a; }
+  .nav-cta { background: #4a7c3a; color: #fff !important; padding: 10px 22px; border-radius: 3px; line-height: 1; }
+  .nav-cta:hover { background: #3d6830 !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #0a1f0a 0%, #1a3a1a 40%, #2d5a2d 100%);
+    display: flex; align-items: center;
+    padding: 120px 40px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a7c3a' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 700px; position: relative; z-index: 1; }
+  .hero-eyebrow { font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase; color: #7cba5a; margin-bottom: 16px; }
+  .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; line-height: 1.05; color: #fff; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.02em; }
+  .hero h1 span { color: #7cba5a; }
+  .hero-sub { font-size: 1.1rem; color: #aaa; line-height: 1.7; margin-bottom: 36px; max-width: 520px; }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary { background: #4a7c3a; color: #fff; padding: 16px 34px; border-radius: 3px; text-decoration: none; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: background 0.2s; }
+  .btn-primary:hover { background: #3d6830; }
+  .btn-outline { border: 2px solid #7cba5a; color: #7cba5a; padding: 14px 32px; border-radius: 3px; text-decoration: none; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.2s; }
+  .btn-outline:hover { background: #7cba5a; color: #fff; }
+
+  /* STATS STRIP */
+  .stats { background: #4a7c3a; padding: 28px 40px; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
+  .stat-item { text-align: center; }
+  .stat-num { font-family: 'Oswald', sans-serif; font-size: 2.2rem; font-weight: 700; color: #fff; display: block; }
+  .stat-lbl { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.75); }
+
+  /* SECTIONS */
+  section { padding: 90px 40px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: #4a7c3a; margin-bottom: 10px; }
+  .section-title { font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; color: #1a1a1a; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.02em; }
+  .section-body { font-size: 1rem; color: #666; line-height: 1.8; max-width: 620px; }
+
+  /* SERVICES */
+  .services-bg { background: #f5f8f3; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2px; margin-top: 50px; }
+  .service-card { background: #fff; padding: 36px 30px; border-top: 3px solid transparent; transition: border-color 0.2s, box-shadow 0.2s; }
+  .service-card:hover { border-color: #4a7c3a; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+  .service-icon { font-size: 2.2rem; margin-bottom: 14px; }
+  .service-card h3 { font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 600; color: #1a1a1a; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.03em; }
+  .service-card p { font-size: 0.9rem; color: #777; line-height: 1.7; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+  .about-visual {
+    background: linear-gradient(135deg, #2d5a2d, #4a7c3a);
+    border-radius: 4px; aspect-ratio: 4/5;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 7rem; flex-direction: column; gap: 16px;
+  }
+  .about-visual p { color: #fff; font-family: 'Oswald', sans-serif; font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; }
+  .promise-list { margin-top: 24px; }
+  .promise-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+  .promise-check { color: #4a7c3a; font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+  .promise-text { font-size: 0.95rem; color: #555; line-height: 1.6; }
+
+  /* TESTIMONIALS */
+  .testi-bg { background: #0f1f0f; }
+  .testi-bg .section-label { color: #7cba5a; }
+  .testi-bg .section-title { color: #fff; }
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 50px; }
+  .testi-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; padding: 30px; border-top: 3px solid #4a7c3a; }
+  .testi-stars { color: #7cba5a; font-size: 1rem; margin-bottom: 14px; }
+  .testi-text { font-size: 0.95rem; color: #bbb; line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+  .testi-name { font-size: 0.85rem; color: #666; }
+
+  /* CTA */
+  .cta-section { background: #4a7c3a; text-align: center; padding: 80px 40px; }
+  .cta-section h2 { font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 12px; }
+  .cta-section p { color: rgba(255,255,255,0.8); font-size: 1.05rem; margin-bottom: 32px; }
+  .cta-phone { font-family: 'Oswald', sans-serif; font-size: 2.5rem; font-weight: 700; color: #fff; text-decoration: none; display: block; margin-bottom: 28px; letter-spacing: 0.05em; }
+  .cta-section .btn-white { background: #fff; color: #4a7c3a; padding: 16px 40px; border-radius: 3px; text-decoration: none; font-size: 1rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: background 0.2s; }
+  .cta-section .btn-white:hover { background: #f0f0f0; }
+
+  /* FOOTER */
+  footer { background: #0a150a; color: #555; text-align: center; padding: 28px 20px; font-size: 0.85rem; }
+  footer a { color: #7cba5a; text-decoration: none; }
+
+  /* DEMO BANNER */
+  .demo-banner {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+    background: #1a1a1a; color: #fff; padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    font-size: 0.9rem; flex-wrap: wrap;
+  }
+  .demo-banner strong { color: #7cba5a; }
+  .demo-banner a { background: #4a7c3a; color: #fff; padding: 8px 18px; border-radius: 3px; text-decoration: none; font-weight: 500; white-space: nowrap; }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .stats { gap: 30px; padding: 24px 20px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-visual { display: none; }
+    section { padding: 60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <div>✦ <strong>Free demo</strong> built by CTF Designs — your site could look like this in 1 week, from $499</div>
+  <a href="https://ctfdesigns.com/contact.html" target="_blank">Get yours →</a>
+</div>
+
+<nav>
+  <a href="#" class="nav-brand">SMITTY'S <span>LANDSCAPE</span></a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="tel:9517608750" class="nav-cta">Free Estimate</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Temecula & Murrieta, CA · Since 1998</div>
+    <h1>Temecula's Most <span>Trusted</span> Landscape Contractor</h1>
+    <p class="hero-sub">Pools · Concrete · Landscaping · Outdoor Kitchens · Patio Covers. 25+ years, hundreds of completed projects, every job owner-supervised.</p>
+    <div class="hero-ctas">
+      <a href="tel:9517608750" class="btn-primary">📞 Free Estimate</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat-item"><span class="stat-num">25+</span><span class="stat-lbl">Years in Business</span></div>
+  <div class="stat-item"><span class="stat-num">500+</span><span class="stat-lbl">Projects Completed</span></div>
+  <div class="stat-item"><span class="stat-num">100%</span><span class="stat-lbl">Owner Supervised</span></div>
+  <div class="stat-item"><span class="stat-num">Free</span><span class="stat-lbl">Estimates</span></div>
+</div>
+
+<section class="services-bg" id="services">
+  <div class="container">
+    <div class="section-label">What We Build</div>
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-body">From a new lawn to a full backyard transformation — pools, concrete, fire pits, outdoor kitchens. We handle it all, from design to cleanup.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🏊</div>
+        <h3>Pools & Spas</h3>
+        <p>New pool construction and pool resurfacing. Custom shapes, finishes, and spa additions — built to last decades.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧱</div>
+        <h3>Concrete Work</h3>
+        <p>Patios, walkways, driveways, retaining walls, and decorative concrete staining. Solid craftsmanship, every pour.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌿</div>
+        <h3>Landscaping</h3>
+        <p>Lawn installation, drought-resistant landscapes, irrigation systems, flower beds, trees, and shrubs.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔥</div>
+        <h3>Outdoor Kitchens & Fire Pits</h3>
+        <p>Custom BBQ islands, patio covers, fireplaces, and complete outdoor living spaces designed for SoCal living.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💧</div>
+        <h3>Irrigation & Sprinklers</h3>
+        <p>Smart irrigation design, installation, and repair. Keep your yard green without wasting water.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏡</div>
+        <h3>Full Yard Transformations</h3>
+        <p>Complete front-to-back makeovers. We'll plan it, build it, and leave the site cleaner than we found it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual">🌳<p>Est. 1998</p></div>
+      <div>
+        <div class="section-label">Why Smitty's</div>
+        <h2 class="section-title">25 Years. Hundreds of Projects. Same Owner.</h2>
+        <p class="section-body">Smitty's has been building backyards across Temecula, Murrieta, Menifee, Lake Elsinore, and Southern California for over two decades. Every single job is personally supervised by the owner — not handed off to a subcontractor crew you've never met.</p>
+        <div class="promise-list">
+          <div class="promise-item"><span class="promise-check">✓</span><span class="promise-text">Every job personally owner-supervised — no third-party crews</span></div>
+          <div class="promise-item"><span class="promise-check">✓</span><span class="promise-text">Free, accurate estimates — no upselling, no surprises</span></div>
+          <div class="promise-item"><span class="promise-check">✓</span><span class="promise-text">We stand behind our work, guaranteed</span></div>
+          <div class="promise-item"><span class="promise-check">✓</span><span class="promise-text">Site left immaculate — we clean up after every project</span></div>
+          <div class="promise-item"><span class="promise-check">✓</span><span class="promise-text">Serving the Temecula Valley for 25+ years on referrals alone</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testi-bg" id="testimonials">
+  <div class="container">
+    <div class="section-label">What Clients Say</div>
+    <h2 class="section-title">Built on Referrals</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Smitty's built our backyard pool and patio from scratch. Owner was on site every single day. Best money we've ever spent on our home."</p>
+        <div class="testi-name">— Temecula Homeowner</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"We've used them twice — once for landscaping, once for concrete. Same level of quality both times. They clean up like they were never there."</p>
+        <div class="testi-name">— Murrieta Client</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Got three bids. Smitty's wasn't the cheapest, but after meeting the owner I knew they were the right choice. No regrets."</p>
+        <div class="testi-name">— Menifee Homeowner</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <h2>Ready to Build Something?</h2>
+  <p>Free estimates — we come to you. Serving Temecula, Murrieta & all of SW Riverside County.</p>
+  <a href="tel:9517608750" class="cta-phone">(951) 760-8750</a>
+  <a href="tel:9517608750" class="btn-white">Call for a Free Estimate</a>
+</section>
+
+<footer>
+  <p>© 2026 Smitty's Landscape Construction · Temecula, CA · <a href="tel:9517608750">(951) 760-8750</a></p>
+  <p style="margin-top:6px;font-size:0.75rem;opacity:0.5">Demo site built by <a href="https://ctfdesigns.com">CTF Designs</a></p>
+</footer>
+
+</body>
+</html>
