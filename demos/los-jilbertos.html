@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Los Jilbertos — Authentic Mexican Food · Menifee, CA</title>
+<meta name="description" content="Authentic Mexican tacos, burritos, combos & breakfast all day in Menifee, CA. Drive-thru & online ordering. Open daily 4am–midnight." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --chili: #c0392b;
+    --chili-dark: #96281b;
+    --gold: #e67e22;
+    --gold-light: #f39c12;
+    --cream: #fdf8f0;
+    --warm-white: #fffcf7;
+    --green: #27ae60;
+    --ink: #1a0a00;
+    --warm-gray: #7a6a55;
+    --border: #ede0cc;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    background: var(--warm-white);
+    color: var(--ink);
+  }
+
+  /* ─── TOP BAR ─── */
+  .top-bar {
+    background: var(--chili);
+    padding: 9px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .top-bar p { font-size: 0.8rem; color: rgba(255,255,255,0.85); letter-spacing: 0.04em; }
+  .top-bar strong { color: #fff; }
+  .top-bar a {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    transition: background 0.2s;
+  }
+  .top-bar a:hover { background: rgba(255,255,255,0.25); }
+
+  /* ─── NAV ─── */
+  nav {
+    background: var(--warm-white);
+    padding: 0 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 74px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(26,10,0,0.06);
+  }
+  .nav-logo img { height: 48px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--warm-gray); font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--chili); }
+  .nav-order {
+    background: var(--chili) !important;
+    color: var(--warm-white) !important;
+    padding: 11px 26px !important;
+    border-radius: 100px;
+    font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-order:hover { background: var(--chili-dark) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 88vh;
+    background: linear-gradient(135deg, #1a0500 0%, #3d1000 40%, #6b1a00 100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(230,126,34,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-left {
+    padding: 80px 64px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(230,126,34,0.15);
+    border: 1px solid rgba(230,126,34,0.35);
+    color: var(--gold-light);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 7px 18px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-light); font-weight: 700; }
+  .hero-rule { width: 60px; height: 3px; background: var(--gold); margin: 24px 0; border-radius: 2px; }
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 420px;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-gold {
+    background: var(--gold);
+    color: #fff;
+    padding: 15px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    transition: background 0.2s;
+  }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-ghost {
+    border: 1.5px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.7);
+    padding: 13px 34px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+  .hero-badges {
+    display: flex;
+    gap: 20px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .hero-badge-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); font-size: 0.82rem; }
+  .hero-badge-icon { color: var(--gold); font-size: 1rem; }
+
+  .hero-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 200px);
+    gap: 6px;
+    height: 100%;
+    overflow: hidden;
+  }
+  .hero-right img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+  }
+  .hero-right img:hover { transform: scale(1.06); }
+  .hero-right img:first-child { grid-column: span 2; height: 240px; }
+
+  /* ─── ANNOUNCE STRIP ─── */
+  .announce {
+    background: var(--gold);
+    padding: 16px 48px;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .announce-item { display: flex; align-items: center; gap: 10px; }
+  .announce-icon { font-size: 1.3rem; }
+  .announce-text { font-size: 0.88rem; font-weight: 700; color: #fff; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 80px 48px; }
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.05;
+    margin-bottom: 12px;
+  }
+  .section-sub {
+    color: var(--warm-gray);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 48px;
+  }
+
+  /* ─── MENU ─── */
+  .menu-bg { background: var(--cream); }
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  .menu-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .menu-card:hover { box-shadow: 0 12px 40px rgba(192,57,43,0.1); transform: translateY(-3px); }
+  .menu-card-img {
+    width: 100%; height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  .menu-card-body { padding: 20px; }
+  .menu-card-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .menu-card-desc { font-size: 0.83rem; color: var(--warm-gray); line-height: 1.5; margin-bottom: 12px; }
+  .menu-card-price {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--chili);
+  }
+
+  /* ─── PHOTO WALL ─── */
+  .photo-wall {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 240px 240px;
+    gap: 6px;
+  }
+  .photo-wall img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s, filter 0.4s;
+    filter: brightness(0.95);
+  }
+  .photo-wall img:hover { transform: scale(1.04); filter: brightness(1.05); }
+  .photo-wall img.span2 { grid-column: span 2; }
+
+  /* ─── TACO TUESDAY ─── */
+  .taco-section {
+    background: var(--chili);
+    padding: 80px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .taco-section::before {
+    content: '🌮';
+    position: absolute;
+    right: -20px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 18rem;
+    opacity: 0.06;
+    pointer-events: none;
+  }
+  .taco-section .section-title { color: #fff; }
+  .taco-section .section-sub { color: rgba(255,255,255,0.7); }
+  .taco-section .section-label { color: var(--gold-light); }
+  .taco-img { border-radius: 16px; overflow: hidden; }
+  .taco-img img { width: 100%; height: 400px; object-fit: cover; display: block; border-radius: 16px; }
+
+  /* ─── HOURS ─── */
+  .hours-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .hours-table { width: 100%; border-collapse: collapse; }
+  .hours-table tr { border-bottom: 1px solid var(--border); }
+  .hours-table td { padding: 14px 0; font-size: 0.92rem; color: var(--ink); }
+  .hours-table td:last-child { text-align: right; font-weight: 700; color: var(--chili); }
+  .contact-items { display: flex; flex-direction: column; gap: 18px; }
+  .contact-item { display: flex; align-items: flex-start; gap: 14px; }
+  .contact-bubble {
+    width: 44px; height: 44px;
+    background: #fdecea;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .contact-label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 2px; }
+  .contact-val { font-size: 0.95rem; color: var(--ink); font-weight: 500; }
+  .contact-val a { color: var(--chili); text-decoration: none; }
+
+  /* ─── ORDER CTA ─── */
+  .order-cta {
+    background: linear-gradient(135deg, #1a0500 0%, #3d1000 100%);
+    padding: 80px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .order-cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(230,126,34,0.12) 0%, transparent 70%);
+  }
+  .order-cta h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .order-cta h2 em { font-style: italic; color: var(--gold-light); }
+  .order-cta p { color: rgba(255,255,255,0.55); font-size: 0.95rem; margin-bottom: 32px; position: relative; z-index: 1; }
+  .btn-chili {
+    background: var(--chili);
+    color: #fff;
+    padding: 16px 48px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: inline-block;
+    transition: background 0.2s;
+    position: relative;
+    z-index: 1;
+  }
+  .btn-chili:hover { background: var(--chili-dark); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-brand img { height: 36px; filter: brightness(0) invert(1); opacity: 0.6; }
+  footer p { font-size: 0.78rem; color: #5a4a3a; }
+  footer p a { color: var(--gold); text-decoration: none; }
+
+  /* ─── DEMO ─── */
+  .demo-notice {
+    position: fixed; bottom: 20px; right: 20px;
+    background: var(--ink);
+    border: 1.5px solid var(--gold);
+    color: rgba(255,255,255,0.5);
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 999;
+  }
+  .demo-notice a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 60px 24px; }
+    nav, section, footer, .order-cta, .taco-section, .top-bar, .announce { padding-left: 24px; padding-right: 24px; }
+    .hours-grid, .taco-section { grid-template-columns: 1fr; gap: 40px; }
+    .photo-wall { grid-template-columns: 1fr 1fr; }
+    .photo-wall img.span2 { grid-column: span 1; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <p>📍 <strong>27511 McCall Blvd, Menifee, CA</strong> · Open Daily · Drive-Thru Available</p>
+  <a href="https://losjilbertosmenifee.com/order-online" target="_blank">🛵 Order Online</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo"><img src="los-jilbertos-assets/logo.png" alt="Los Jilbertos" /></a>
+  <div class="nav-links">
+    <a href="#menu">Menu</a>
+    <a href="#hours">Hours</a>
+    <a href="tel:+19514302899">(951) 430-2899</a>
+    <a href="https://losjilbertosmenifee.com/order-online" target="_blank" class="nav-order">Order Online</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <span class="hero-pill">🌮 Authentic Mexican · Menifee, CA</span>
+    <h1>Real Food.<br><em>Real Flavor.</em><br>All Day.</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Tacos, burritos, combos, breakfast & more — made fresh from real ingredients. Drive-thru open. Online ordering available. Taco Tuesday every week.</p>
+    <div class="hero-ctas">
+      <a href="https://losjilbertosmenifee.com/order-online" target="_blank" class="btn-gold">🛵 Order Online</a>
+      <a href="#menu" class="btn-ghost">View Menu</a>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge-item"><span class="hero-badge-icon">🚗</span> Drive-Thru</div>
+      <div class="hero-badge-item"><span class="hero-badge-icon">🍳</span> Breakfast All Day</div>
+      <div class="hero-badge-item"><span class="hero-badge-icon">🌮</span> Taco Tuesday</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="los-jilbertos-assets/IMG_4339.jpg" alt="Tacos" />
+    <img src="los-jilbertos-assets/IMG_0093.jpg" alt="Burritos" />
+    <img src="los-jilbertos-assets/IMG_5188-1.jpg" alt="Food" />
+    <img src="los-jilbertos-assets/IMG_0065.jpg" alt="Plate" />
+    <img src="los-jilbertos-assets/IMG_0081-1.jpg" alt="Mexican food" />
+    <img src="los-jilbertos-assets/IMG_0550.jpg" alt="Combo" />
+  </div>
+</div>
+
+<!-- ANNOUNCE STRIP -->
+<div class="announce">
+  <div class="announce-item"><span class="announce-icon">🚗</span><span class="announce-text">Drive-Thru Open</span></div>
+  <div class="announce-item"><span class="announce-icon">🛵</span><span class="announce-text">Online Ordering & Delivery</span></div>
+  <div class="announce-item"><span class="announce-icon">🍳</span><span class="announce-text">Breakfast All Day</span></div>
+  <div class="announce-item"><span class="announce-icon">🌮</span><span class="announce-text">Taco Tuesday Every Week</span></div>
+</div>
+
+<!-- MENU -->
+<section class="menu-bg" id="menu">
+  <div class="section-label">What We're Serving</div>
+  <h2 class="section-title">Fresh From the Kitchen</h2>
+  <p class="section-sub">Everything made fresh. No shortcuts, no freezer burns. Just the real thing.</p>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <img class="menu-card-img" src="los-jilbertos-assets/IMG_4339.jpg" alt="Torta Combo" />
+      <div class="menu-card-body">
+        <div class="menu-card-name">Torta Combo</div>
+        <div class="menu-card-desc">Choice of Asada, Pastor, Pollo Asado or Carnitas — w/ Lettuce, Pico de Gallo & Guacamole. Comes with fries & drink.</div>
+        <div class="menu-card-price">$14.75</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="los-jilbertos-assets/IMG_0093.jpg" alt="Burrito" />
+      <div class="menu-card-body">
+        <div class="menu-card-name">Burritos</div>
+        <div class="menu-card-desc">Carnitas, Al Pastor, Carne Asada or Pollo Asado. With Beans & Rice add $0.75.</div>
+        <div class="menu-card-price">From $12.50</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="los-jilbertos-assets/IMG_5188-1.jpg" alt="Tacos" />
+      <div class="menu-card-body">
+        <div class="menu-card-name">Taco Plate (5 Tacos)</div>
+        <div class="menu-card-desc">Five tacos with guacamole, lettuce & cheese. Your choice of meat.</div>
+        <div class="menu-card-price">$10.25</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="los-jilbertos-assets/IMG_0065.jpg" alt="Combination" />
+      <div class="menu-card-body">
+        <div class="menu-card-name">Combination Plate</div>
+        <div class="menu-card-desc">Choice of Asada, Pastor, Cabeza, Carnitas & Pollo Asado. Served w/ rice and beans.</div>
+        <div class="menu-card-price">$12.25</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="los-jilbertos-assets/IMG_0744.jpg" alt="Cali Burrito" />
+      <div class="menu-card-body">
+        <div class="menu-card-name">Cali Burrito</div>
+        <div class="menu-card-desc">Beef or Chicken, Rice, Beans, Cheese, Lettuce — deep fried wet style.</div>
+        <div class="menu-card-price">$13.25</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="los-jilbertos-assets/IMG_0107.jpg" alt="Loaded Fries" />
+      <div class="menu-card-body">
+        <div class="menu-card-name">Loaded Fries</div>
+        <div class="menu-card-desc">Fries with Pico de Gallo, melted cheese & your choice of meat.</div>
+        <div class="menu-card-price">$13.25</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO WALL -->
+<div class="photo-wall">
+  <img src="los-jilbertos-assets/IMG_0081-1.jpg" alt="Food" class="span2" />
+  <img src="los-jilbertos-assets/IMG_0550.jpg" alt="Food" />
+  <img src="los-jilbertos-assets/IMG_4576.jpg" alt="Food" />
+  <img src="los-jilbertos-assets/IMG_0072.jpg" alt="Food" />
+  <img src="los-jilbertos-assets/IMG_0829.jpg" alt="Food" />
+  <img src="los-jilbertos-assets/877ffd4a-a78c-4c99-a3cc-c9270c929ca0-1.jpg" alt="Food" class="span2" />
+</div>
+
+<!-- TACO TUESDAY -->
+<div class="taco-section" id="specials">
+  <div>
+    <div class="section-label">Weekly Special</div>
+    <h2 class="section-title" style="color:#fff">Taco Tuesday</h2>
+    <p class="section-sub">Every Tuesday, all day. The best tacos in Menifee at an even better price. Dine in, drive-thru, or order online.</p>
+    <a href="https://losjilbertosmenifee.com/order-online" target="_blank" class="btn-gold">Order Now</a>
+  </div>
+  <div class="taco-img">
+    <img src="los-jilbertos-assets/IMG_4576.jpg" alt="Tacos" />
+  </div>
+</div>
+
+<!-- HOURS & CONTACT -->
+<section id="hours">
+  <div class="section-label">Visit Us</div>
+  <h2 class="section-title">Hours & Contact</h2>
+  <div class="hours-grid" style="margin-top:40px;">
+    <div>
+      <p class="section-sub" style="margin-bottom:24px;">Open early, close late. We're here when you need us — breakfast through midnight.</p>
+      <table class="hours-table">
+        <tr><td>Monday – Thursday</td><td>4:00 AM – 12:00 AM</td></tr>
+        <tr><td>Friday</td><td>4:00 AM – 1:00 AM</td></tr>
+        <tr><td>Saturday & Sunday</td><td>7:00 AM – 12:00 AM</td></tr>
+      </table>
+    </div>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="contact-bubble">📍</div>
+        <div>
+          <div class="contact-label">Address</div>
+          <div class="contact-val">27511 McCall Blvd<br>Menifee, California</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-bubble">📞</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-val"><a href="tel:+19514302899">(951) 430-2899</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-bubble">✉️</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val"><a href="mailto:losjilbertosmenifee@gmail.com">losjilbertosmenifee@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER CTA -->
+<div class="order-cta">
+  <h2>Hungry? <em>Order Now.</em></h2>
+  <p>Online ordering · Delivery · Drive-Thru · Pick-up. Whatever works for you.</p>
+  <a href="https://losjilbertosmenifee.com/order-online" target="_blank" class="btn-chili">🛵 Order Online</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand"><img src="los-jilbertos-assets/logo.png" alt="Los Jilbertos" /></div>
+  <p>27511 McCall Blvd · Menifee, CA · (951) 430-2899</p>
+  <p>Demo by <a href="https://ctfdesigns.com" target="_blank">CTF Designs</a></p>
+</footer>
+
+<div class="demo-notice">Demo — <a href="https://ctfdesigns.com" target="_blank">CTF Designs</a></div>
+
+</body>
+</html>
