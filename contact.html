@@ -264,6 +264,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="section-label">Contact</span>
       <h1>Let's Build <span class="grad-text">Something Great</span></h1>
       <p>Tell us about your project. We'll get back to you within one business day.</p>
+      <div style="max-width:440px;margin:1.75rem auto 0;background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-lg);padding:1.25rem;">
+        <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;margin-bottom:0.75rem;">Prefer a call? Get one in 30 seconds.</p>
+        <form id="cb-form" style="display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;">
+          <input id="cb-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(951) 555-0100" required style="flex:1;min-width:180px;padding:0.8rem 0.9rem;border-radius:var(--radius);border:1px solid var(--card-border);background:rgba(255,255,255,0.06);color:var(--text);font-size:1rem;" />
+          <button id="cb-btn" type="submit" class="btn btn-grad" style="white-space:nowrap;">📞 Call me now</button>
+        </form>
+        <p id="cb-msg" style="margin-top:0.6rem;font-size:0.85rem;color:var(--muted);display:none;"></p>
+      </div>
+      <script>
+        (function(){
+          var f=document.getElementById('cb-form'); if(!f) return;
+          f.addEventListener('submit', async function(e){
+            e.preventDefault();
+            var btn=document.getElementById('cb-btn'), msg=document.getElementById('cb-msg'), phone=document.getElementById('cb-phone').value;
+            btn.disabled=true; var t=btn.textContent; btn.textContent='Calling…';
+            try{
+              var r=await fetch('https://www.socalreceptionist.com/callback-ctf',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({phone:phone})});
+              var j=await r.json().catch(function(){return {};});
+              msg.style.display='block';
+              msg.textContent = r.ok ? '📞 Calling you now — answer your phone!' : (j.error||'Something went wrong, please try again.');
+            }catch(_){ msg.style.display='block'; msg.textContent='Connection error, please try again.'; }
+            finally{ btn.disabled=false; btn.textContent=t; }
+          });
+        })();
+      </script>
     </div>
   </section>
 
