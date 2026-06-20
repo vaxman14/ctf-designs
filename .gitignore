@@ -1,0 +1,7 @@
+credentials/
+*.env
+.env
+.env.*
+.DS_Store
+node_modules/
+.netlify/
