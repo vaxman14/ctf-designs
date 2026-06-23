@@ -1,7 +1,7 @@
 ---
 title: 5 Signs Your Small-Business Website Is Quietly Losing You Customers
 slug: 5-signs-your-website-is-losing-customers
-date: 2026-06-23
+date: 2026-06-20
 author: Roman
 read: 4 min read
 kicker: The Floof Factor
