@@ -11,7 +11,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CTF Designs — Web Design & Development Agency | Murrieta, CA</title>
+  <title>Our Work — CTF Designs Portfolio</title>
   <meta name="description" content="CTF Designs builds premium websites, e-commerce stores, and digital experiences for businesses ready to grow. Based in Murrieta, CA." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -661,7 +661,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
   <ul class="nav-links">
     <li><a href="index.html#services">Services</a></li>
-    <li><a href="work.html">Portfolio</a></li>
+    <li><a href="index.html#portfolio">Portfolio</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="/blog/">Blog</a></li>
     <li><a href="pricing.html">Pricing</a></li>
@@ -673,218 +673,129 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </button>
 </nav>
 
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobile-menu" role="navigation">
-  <a href="index.html#services" class="mobile-link">Services</a>
-  <a href="work.html" class="mobile-link">Portfolio</a>
-  <a href="about.html" class="mobile-link">About</a>
-  <a href="/blog/" class="mobile-link">Blog</a>
-  <a href="pricing.html" class="mobile-link">Pricing</a>
-  <a href="contact.html" class="mobile-link">Contact</a>
-  <a href="contact.html" class="btn btn-grad" style="width:fit-content;margin-top:0.5rem;">Start a Project</a>
-</div>
+<style>
+/* /work page */
+.work-top{padding-top:140px;padding-bottom:20px}
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:10px}
+.feat-card{display:flex;flex-direction:column;background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-lg);overflow:hidden;text-decoration:none;color:inherit;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.feat-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,0.22);box-shadow:0 18px 40px rgba(0,0,0,0.45)}
+.feat-shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0d0d1a;border-bottom:1px solid var(--card-border)}
+.feat-shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .5s ease}
+.feat-card:hover .feat-shot img{transform:scale(1.04)}
+.feat-shot .live{position:absolute;top:12px;right:12px;font-size:.7rem;font-weight:600;letter-spacing:.03em;background:rgba(7,7,17,.72);backdrop-filter:blur(4px);border:1px solid var(--card-border);color:#f8fafc;padding:5px 10px;border-radius:999px}
+.feat-body{padding:20px 22px 22px}
+.feat-cat{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;color:transparent;background:var(--grad);-webkit-background-clip:text;background-clip:text}
+.feat-body h3{margin:.35rem 0 .5rem;font-size:1.28rem}
+.feat-body p{color:var(--muted);font-size:.95rem;margin:0 0 .9rem;line-height:1.55}
+.feat-link{font-weight:600;color:#f8fafc;font-size:.92rem;display:inline-flex;gap:6px;align-items:center}
+.feat-link span{transition:transform .2s ease}.feat-card:hover .feat-link span{transform:translateX(4px)}
+.tools-head{display:flex;align-items:center;gap:18px;margin:64px 0 8px}
+.tools-head::before,.tools-head::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--card-border),transparent)}
+.tools-head h3{font-size:1.05rem;white-space:nowrap;color:var(--muted);font-weight:500;letter-spacing:.02em}
+.tools-sub{text-align:center;color:var(--muted);font-size:.9rem;margin:0 0 22px}
+.tools-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.tool-row{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--card-border);border-radius:var(--radius);background:rgba(255,255,255,0.02);text-decoration:none;color:inherit;transition:border-color .2s ease,background .2s ease,transform .2s ease}
+.tool-row:hover{border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);transform:translateX(3px)}
+.tool-dot{width:9px;height:9px;border-radius:50%;background:var(--grad);flex:0 0 auto;box-shadow:0 0 12px rgba(236,72,153,.5)}
+.tool-meta{flex:1;min-width:0}
+.tool-meta b{font-size:.97rem;font-weight:600;color:#f8fafc}
+.tool-meta span{display:block;font-size:.8rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tool-row .arr{color:var(--muted);flex:0 0 auto;transition:transform .2s ease,color .2s ease}
+.tool-row:hover .arr{color:#f8fafc;transform:translateX(3px)}
+@media(max-width:760px){.feat-grid{grid-template-columns:1fr}.tools-list{grid-template-columns:1fr}.work-top{padding-top:120px}}
+</style>
 
-<main>
-  <!-- HERO -->
-  <section class="hero" style="padding-left:5%;padding-right:5%;">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="dot"></span>
-        Murrieta, CA &mdash; Serving SoCal &amp; Beyond
-      </div>
-      <h1>We Build Websites That <span class="grad-text">Work As Hard</span> As You Do.</h1>
-      <p>Custom web design, e-commerce &amp; digital experiences for businesses ready to grow.</p>
-      <div class="hero-ctas">
-        <a href="work.html" class="btn btn-grad">See Our Work</a>
-        <a href="contact.html" class="btn btn-outline">Get a Quote</a>
-      </div>
-    </div>
-    <div class="hero-scroll" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="arrow"></div>
-    </div>
-  </section>
 
-  <!-- SERVICES -->
-  <section id="services">
+  <section class="work-top">
     <div class="container">
       <div class="section-header fade-up">
-        <span class="section-label">What We Do</span>
-        <h2>Services Built for <span class="grad-text">Real Results</span></h2>
-        <p>From pixel-perfect design to full-stack development — we handle it all so you can focus on running your business.</p>
+        <span class="section-label">Portfolio</span>
+        <h2>Work We're <span class="grad-text">Proud Of</span></h2>
+        <p>Real businesses, real products, real results. Here's a look at what we've built and shipped.</p>
       </div>
-      <div class="services-grid stagger">
-        <div class="service-card">
-          <div class="service-icon">🎨</div>
-          <h3>Custom Website Design &amp; Development</h3>
-          <p>From landing pages to full web apps. Built fast, built right.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🛒</div>
-          <h3>E-Commerce (Shopify)</h3>
-          <p>Beautiful Shopify stores that convert browsers into buyers.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🔧</div>
-          <h3>Website Maintenance &amp; Support</h3>
-          <p>We keep your site fast, secure, and up to date. Monthly plans available.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🌐</div>
-          <h3>Domain Registration &amp; Setup</h3>
-          <p>We handle the technical setup so you don't have to.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-label">Our Work</span>
-        <h2>Projects We're <span class="grad-text">Proud Of</span></h2>
-        <p>Real businesses. Real results. Take a look at what we've built.</p>
-      </div>
-      <div class="portfolio-grid stagger">
-
-        <a href="https://www.socalreceptionist.com" target="_blank" rel="noopener" class="project-card">
-          <div class="project-preview project-preview-1">
-            <div class="project-preview-label">SoCal Receptionist</div>
-            <div class="project-overlay"><span>View Live Site ↗</span></div>
-          </div>
-          <div class="project-info">
-            <div class="project-category">SaaS Platform</div>
+      <div class="feat-grid stagger">
+        <a href="https://www.socalreceptionist.com" target="_blank" rel="noopener" class="feat-card">
+          <div class="feat-shot"><img src="images/work/socal.png" alt="SoCal Receptionist screenshot" loading="lazy"><span class="live">Live</span></div>
+          <div class="feat-body">
+            <div class="feat-cat">AI SaaS Platform</div>
             <h3>SoCal Receptionist</h3>
-            <p>AI-powered receptionist platform for local businesses — 24/7 call handling, appointment booking, and customer service automation.</p>
-            <span class="project-link">Visit socalreceptionist.com <span>→</span></span>
+            <p>AI receptionist for local businesses and law firms — 24/7 call answering, lead capture, and booking straight into their software.</p>
+            <span class="feat-link">Visit site <span>&#8594;</span></span>
           </div>
         </a>
-
-        <a href="https://weblaunchguard.com" target="_blank" rel="noopener" class="project-card">
-          <div class="project-preview project-preview-2">
-            <div class="project-preview-label">WebLaunchGuard</div>
-            <div class="project-overlay"><span>View Live Site ↗</span></div>
+        <a href="https://quotejot.com" target="_blank" rel="noopener" class="feat-card">
+          <div class="feat-shot"><img src="images/work/quotejot.png" alt="QuoteJot screenshot" loading="lazy"><span class="live">Live</span></div>
+          <div class="feat-body">
+            <div class="feat-cat">AI SaaS Product</div>
+            <h3>QuoteJot</h3>
+            <p>Type a job in plain English, get an itemized, branded estimate in seconds. Accounts, saved history, and email-to-client built in.</p>
+            <span class="feat-link">Visit site <span>&#8594;</span></span>
           </div>
-          <div class="project-info">
-            <div class="project-category">Security SaaS</div>
+        </a>
+        <a href="https://weblaunchguard.com" target="_blank" rel="noopener" class="feat-card">
+          <div class="feat-shot"><img src="images/work/weblaunchguard.png" alt="WebLaunchGuard screenshot" loading="lazy"><span class="live">Live</span></div>
+          <div class="feat-body">
+            <div class="feat-cat">Security SaaS</div>
             <h3>WebLaunchGuard</h3>
-            <p>Website security &amp; compliance scanner — helping businesses identify vulnerabilities and ship with confidence.</p>
-            <span class="project-link">Visit weblaunchguard.com <span>→</span></span>
+            <p>Website security &amp; compliance scanner that helps businesses spot vulnerabilities and launch with confidence.</p>
+            <span class="feat-link">Visit site <span>&#8594;</span></span>
           </div>
         </a>
-
-        <a href="https://chefcyrilkabaoglu.com" target="_blank" rel="noopener" class="project-card">
-          <div class="project-preview project-preview-3">
-            <div class="project-preview-label">Chef Cyril Kabaoglu</div>
-            <div class="project-overlay"><span>View Live Site ↗</span></div>
-          </div>
-          <div class="project-info">
-            <div class="project-category">Personal Brand</div>
+        <a href="https://chefcyrilkabaoglu.com" target="_blank" rel="noopener" class="feat-card">
+          <div class="feat-shot"><img src="images/work/cyril.png" alt="Chef Cyril Kabaoglu screenshot" loading="lazy"><span class="live">Live</span></div>
+          <div class="feat-body">
+            <div class="feat-cat">Personal Brand</div>
             <h3>Chef Cyril Kabaoglu</h3>
-            <p>Personal brand site for a Michelin-starred chef &amp; culinary trainer — sophisticated, modern, and built to impress.</p>
-            <span class="project-link">View the site <span>→</span></span>
+            <p>Elegant portfolio site for a professional chef and culinary trainer — modern, refined, and built to impress.</p>
+            <span class="feat-link">Visit site <span>&#8594;</span></span>
           </div>
         </a>
-
-        <a href="https://datescamcheck.com" target="_blank" rel="noopener" class="project-card">
-          <div class="project-preview project-preview-6">
-            <div class="project-preview-label">DateScamCheck</div>
-            <div class="project-overlay"><span>View Live Site ↗</span></div>
+        <a href="https://ctf-tool-fill-sign-pdf.netlify.app" target="_blank" rel="noopener" class="feat-card">
+          <div class="feat-shot"><img src="images/work/fillsign.png" alt="Fill &amp; Sign PDF screenshot" loading="lazy"><span class="live">Live</span></div>
+          <div class="feat-body">
+            <div class="feat-cat">Web App</div>
+            <h3>Fill &amp; Sign PDF</h3>
+            <p>A private, in-browser tool to add text, dates and real signatures to any PDF — nothing ever leaves your device.</p>
+            <span class="feat-link">Open the app <span>&#8594;</span></span>
           </div>
-          <div class="project-info">
-            <div class="project-category">Safety Tool</div>
+        </a>
+        <a href="https://datescamcheck.com" target="_blank" rel="noopener" class="feat-card">
+          <div class="feat-shot"><img src="images/work/datescamcheck.png" alt="Date Scam Check screenshot" loading="lazy"><span class="live">Live</span></div>
+          <div class="feat-body">
+            <div class="feat-cat">Safety Tool</div>
             <h3>Date Scam Check</h3>
-            <p>Free online tool that helps people verify whether someone they met online could be a scammer — safety meets simplicity.</p>
-            <span class="project-link">Visit datescamcheck.com <span>→</span></span>
+            <p>A free tool that helps people verify whether someone they met online could be a scammer. Safety, made simple.</p>
+            <span class="feat-link">Visit site <span>&#8594;</span></span>
           </div>
         </a>
+      </div>
 
-        <a href="https://docxtopdfs.com" target="_blank" rel="noopener" class="project-card">
-          <div class="project-preview project-preview-7">
-            <div class="project-preview-label">DocxToPDFs</div>
-            <div class="project-overlay"><span>View Live Site ↗</span></div>
-          </div>
-          <div class="project-info">
-            <div class="project-category">Utility Tool</div>
-            <h3>DocxToPDFs</h3>
-            <p>Fast, free browser-based DOCX to PDF converter — no uploads, no sign-ups, just instant file conversion.</p>
-            <span class="project-link">Visit docxtopdfs.com <span>→</span></span>
-          </div>
-        </a>
-
-        <a href="https://wpd2docx.com" target="_blank" rel="noopener" class="project-card">
-          <div class="project-preview project-preview-8">
-            <div class="project-preview-label">WPD2DOCX</div>
-            <div class="project-overlay"><span>View Live Site ↗</span></div>
-          </div>
-          <div class="project-info">
-            <div class="project-category">Document Tool</div>
-            <h3>WPD to DOCX Converter</h3>
-            <p>Convert legacy WordPerfect (.wpd) files to modern DOCX format — built for legal professionals and archivists.</p>
-            <span class="project-link">Visit wpd2docx.com <span>→</span></span>
-          </div>
-        </a>
-
-        <a href="https://wordscrabblegenerator.com" target="_blank" rel="noopener" class="project-card">
-          <div class="project-preview project-preview-9">
-            <div class="project-preview-label">Word Scrabble Generator</div>
-            <div class="project-overlay"><span>View Live Site ↗</span></div>
-          </div>
-          <div class="project-info">
-            <div class="project-category">Word Game Tool</div>
-            <h3>Word Scrabble Generator</h3>
-            <p>Free tool to unscramble letters and find valid Scrabble words — fast lookup, dictionary-backed, mobile-friendly.</p>
-            <span class="project-link">Visit wordscrabblegenerator.com <span>→</span></span>
-          </div>
-        </a>
-
-      <div style="text-align:center;margin-top:36px;" class="fade-up">
-        <a href="work.html" class="btn btn-grad">See All Our Work &#8594;</a>
+      <div class="tools-head"><h3>Free tools we've shipped</h3></div>
+      <p class="tools-sub">Little utilities we built and put online for anyone to use — free, fast, and private.</p>
+      <div class="tools-list">
+        <a href="https://coolfancytext.com" target="_blank" rel="noopener" class="tool-row"><span class="tool-dot"></span><span class="tool-meta"><b>Fancy Text Generator</b><span>Cool fonts &amp; symbols to copy and paste</span></span><span class="arr">&#8594;</span></a>
+        <a href="https://getwordcounter.com" target="_blank" rel="noopener" class="tool-row"><span class="tool-dot"></span><span class="tool-meta"><b>Word Counter</b><span>Live word, character &amp; reading-time count</span></span><span class="arr">&#8594;</span></a>
+        <a href="https://freeqrcodetool.com" target="_blank" rel="noopener" class="tool-row"><span class="tool-dot"></span><span class="tool-meta"><b>QR Code Generator</b><span>Free custom QR codes, PNG download</span></span><span class="arr">&#8594;</span></a>
+        <a href="https://heicjpgtool.com" target="_blank" rel="noopener" class="tool-row"><span class="tool-dot"></span><span class="tool-meta"><b>HEIC to JPG</b><span>Convert iPhone photos in your browser</span></span><span class="arr">&#8594;</span></a>
+        <a href="https://getmergepdf.com" target="_blank" rel="noopener" class="tool-row"><span class="tool-dot"></span><span class="tool-meta"><b>Merge PDF</b><span>Combine PDF files, completely private</span></span><span class="arr">&#8594;</span></a>
+        <a href="https://docxtopdfs.com" target="_blank" rel="noopener" class="tool-row"><span class="tool-dot"></span><span class="tool-meta"><b>DOCX to PDF</b><span>Instant document conversion</span></span><span class="arr">&#8594;</span></a>
+        <a href="https://wpd2docx.com" target="_blank" rel="noopener" class="tool-row"><span class="tool-dot"></span><span class="tool-meta"><b>WPD to DOCX</b><span>Legacy WordPerfect file converter</span></span><span class="arr">&#8594;</span></a>
+        <a href="https://wordscrabblegenerator.com" target="_blank" rel="noopener" class="tool-row"><span class="tool-dot"></span><span class="tool-meta"><b>Word Scrabble Generator</b><span>Unscramble letters and find words</span></span><span class="arr">&#8594;</span></a>
       </div>
     </div>
   </section>
 
-  <!-- BRANDING PACKAGE PROMO -->
   <section style="padding-top:0;">
     <div class="container">
       <div class="cta-banner fade-up">
-        <span class="section-label" style="color:rgba(255,255,255,0.85);">Limited-Time Promotion</span>
-        <h2>The Full Branding Package — <span style="white-space:nowrap;">$999</span></h2>
-        <p>Everything you need to launch and look professional: a custom logo, matching business card, and a complete one-page website with About Us, contact form, ADA-compliant build, and all policy pages set up. 3 rounds of revisions on each item. One price, one team, done right.</p>
-        <a href="pricing.html#branding" class="btn btn-white">See What's Included</a>
+        <span class="section-label" style="color:rgba(255,255,255,0.85);">Like what you see?</span>
+        <h2>Let's build yours next.</h2>
+        <p>Websites, branding, and custom tools for small businesses. Fast turnarounds, fair prices, done right.</p>
+        <a href="contact.html" class="btn btn-white">Start a Project</a>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT TEASER -->
-  <section id="about-teaser">
-    <div class="container">
-      <div class="about-teaser fade-up">
-        <div class="about-teaser-text">
-          <span class="section-label">Behind the Brand</span>
-          <h2>Built by Someone Who's <span class="grad-text">Been in the Trenches</span></h2>
-          <p>CTF Designs is run by Roman Vaxman — an operations &amp; tech veteran with a background spanning military service, hospitality, and software. Every site we build is treated like it's our own business on the line.</p>
-          <a href="about.html" class="btn btn-outline">Meet Roman →</a>
-        </div>
-        <div class="about-teaser-visual"><img src="images/roman-cheddar.jpg" alt="Roman Vaxman and Cheddar" /></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BANNER -->
-  <section style="padding-top:0;">
-    <div class="container">
-      <div class="cta-banner fade-up">
-        <h2>Ready to Build Something Great?</h2>
-        <p>Let's talk about your project. No pressure, no jargon — just a real conversation.</p>
-        <a href="contact.html" class="btn btn-white">Start Your Project</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- Footer -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
