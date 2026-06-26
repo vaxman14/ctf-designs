@@ -679,7 +679,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  gtag('js', new Date());
  gtag('config', 'G-0X9Q4PV3XT');
 </script>
-  <link rel="icon" href="images/logo.png" type="image/png">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="preload" as="image" href="images/logo-sm.webp" fetchpriority="high">
 <!-- PostHog -->
 <script>
   !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
@@ -709,7 +710,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Navigation -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo" aria-label="CTF Designs home">
-    <img src="images/logo.png" alt="CTF Designs" style="height:135px;width:auto;border-radius:50%;">
+    <picture>
+      <source srcset="images/logo-sm.webp" type="image/webp">
+      <img src="images/logo-sm.png" alt="CTF Designs" width="135" height="135" fetchpriority="high" style="height:135px;width:135px;border-radius:50%;">
+    </picture>
   </a>
   <ul class="nav-links">
     <li><a href="services.html">Services</a></li>
@@ -920,7 +924,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>CTF Designs is run by Roman Vaxman — an operations &amp; tech veteran with a background spanning military service, hospitality, and software. Every site we build is treated like it's our own business on the line.</p>
           <a href="about.html" class="btn btn-outline">Meet Roman →</a>
         </div>
-        <div class="about-teaser-visual"><img src="images/roman-cheddar.jpg" alt="Roman Vaxman and Cheddar" /></div>
+        <div class="about-teaser-visual"><img src="images/roman-cheddar.jpg" alt="Roman Vaxman and Cheddar" width="1280" height="960" loading="lazy" /></div>
       </div>
     </div>
   </section>
@@ -943,7 +947,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="footer-top">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo">
-          <img src="images/logo.png" alt="CTF Designs" style="height:135px;width:auto;border-radius:50%;">
+          <picture>
+            <source srcset="images/logo-sm.webp" type="image/webp">
+            <img src="images/logo-sm.png" alt="CTF Designs" width="135" height="135" loading="lazy" style="height:135px;width:135px;border-radius:50%;">
+          </picture>
         </a>
         <p>Built by humans. Powered by results.<br/>Web design &amp; development for businesses ready to grow.</p>
       </div>
@@ -1057,7 +1064,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 <!-- Accessibility Toolbar (CTF Designs hosted widget) -->
 <script src="https://ctf-widgets.netlify.app/v1/ada.js" defer data-position="bottom-left" data-color="#7C3AED"></script>
-<script src="https://www.socalreceptionist.com/widget.js" data-name="CTF Designs" data-about="CTF Designs is a web design agency building fast, modern websites for small businesses. Website pricing: Landing Page $299, Scrolling Single Page $499 (most popular), Custom Design $1,499, eCommerce by custom quote (domain not included). Design services: Logo Design $199, Business Card Design $99, Flyer Design $499, 30-second Animated Video $499 (each includes 3 revisions). Best value: Full Branding Package $999 = logo + business card + one-page website (About Us, contact form, accessibility-minded design, all policy pages set up; legal wording must come from the client attorney). Founder: Roman. Contact: roman@ctfdesigns.com." data-accent="#7b2fbe"></script>
+<script defer src="https://www.socalreceptionist.com/widget.js" data-name="CTF Designs" data-about="CTF Designs is a web design agency building fast, modern websites for small businesses. Website pricing: Landing Page $299, Scrolling Single Page $499 (most popular), Custom Design $1,499, eCommerce by custom quote (domain not included). Design services: Logo Design $199, Business Card Design $99, Flyer Design $499, 30-second Animated Video $499 (each includes 3 revisions). Best value: Full Branding Package $999 = logo + business card + one-page website (About Us, contact form, accessibility-minded design, all policy pages set up; legal wording must come from the client attorney). Founder: Roman. Contact: roman@ctfdesigns.com." data-accent="#7b2fbe"></script>
   <script defer src="/newsletter-popup.js"></script>
 </body>
 </html>
