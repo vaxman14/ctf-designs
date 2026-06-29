@@ -359,6 +359,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <label for="message">Tell Us About Your Project <span class="required">*</span></label>
               <textarea id="message" name="message" placeholder="What are you building? What's the goal? Any timeline or budget constraints?" required></textarea>
             </div>
+            <div data-netlify-recaptcha="true" style="margin-bottom:1rem;"></div>
             <button type="submit" class="submit-btn">Send Message →</button>
           </form>
           <div class="form-success" id="formSuccess">
@@ -471,6 +472,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(form);
+    if (!data.get('g-recaptcha-response')) { alert('Please complete the reCAPTCHA below so we know you’re human.'); return; }
     try {
       const res = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() });
       if (res.ok) {
