@@ -157,24 +157,6 @@ footer{border-top:1px solid var(--card-border);padding:3rem 0 2rem;background:#0
 .footer-bottom{border-top:1px solid var(--card-border);padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
 .footer-bottom p{color:var(--muted);font-size:.82rem}
 .easter-egg{opacity:.8}
-/* a11y widget */
-#a11y-btn{position:fixed;bottom:24px;left:24px;z-index:9999;width:48px;height:48px;border-radius:50%;background:#7C3AED;color:#fff;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.3);font-size:22px;display:flex;align-items:center;justify-content:center}
-#a11y-btn:hover{background:#EC4899}
-#a11y-panel{position:fixed;bottom:82px;left:24px;z-index:9999;background:#0d0d1a;border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px;width:230px;box-shadow:0 8px 24px rgba(0,0,0,.4);display:none;flex-direction:column;gap:10px}
-#a11y-panel.open{display:flex}
-#a11y-panel h3{font-size:1rem;margin-bottom:.2rem}
-.a11y-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.88rem}
-.a11y-controls button,#a11y-reset{background:#1b1b2e;border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:8px;padding:5px 10px;cursor:pointer}
-#a11y-reset{width:100%;margin-top:4px}
-.a11y-toggle{position:relative;display:inline-block;width:40px;height:22px}
-.a11y-toggle input{opacity:0;width:0;height:0}
-.a11y-toggle .slider{position:absolute;inset:0;background:#374151;border-radius:22px;cursor:pointer;transition:background .2s}
-.a11y-toggle .slider:before{content:"";position:absolute;width:16px;height:16px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:transform .2s}
-.a11y-toggle input:checked + .slider{background:#7C3AED}
-.a11y-toggle input:checked + .slider:before{transform:translateX(18px)}
-body.a11y-high-contrast{filter:contrast(1.25)}
-body.a11y-reduce-motion *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-body.a11y-dyslexia{font-family:Arial,Helvetica,sans-serif!important;letter-spacing:.05em;word-spacing:.1em;line-height:1.9!important}
 /* cookie */
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:rgba(7,7,17,.95);backdrop-filter:blur(20px);border-top:1px solid var(--card-border);padding:1.25rem 5%;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;transform:translateY(100%);transition:transform .4s}
 .cookie-banner.visible{transform:translateY(0)}
@@ -235,15 +217,7 @@ FOOTER = """<footer>
   </div>
 </footer>"""
 
-A11Y = """<button id="a11y-btn" aria-label="Accessibility options" aria-expanded="false" aria-controls="a11y-panel">&#9855;</button>
-<div id="a11y-panel" role="dialog" aria-label="Accessibility options" aria-modal="false">
-  <h3>Accessibility</h3>
-  <div class="a11y-row"><span class="a11y-label">Text size</span><div class="a11y-controls"><button id="a11y-dec">A&#8722;</button><button id="a11y-inc">A+</button></div></div>
-  <div class="a11y-row"><label class="a11y-label" for="a11y-contrast">High contrast</label><label class="a11y-toggle"><input type="checkbox" id="a11y-contrast"/><span class="slider"></span></label></div>
-  <div class="a11y-row"><label class="a11y-label" for="a11y-motion">Reduce motion</label><label class="a11y-toggle"><input type="checkbox" id="a11y-motion"/><span class="slider"></span></label></div>
-  <div class="a11y-row"><label class="a11y-label" for="a11y-dyslexia">Dyslexia-friendly</label><label class="a11y-toggle"><input type="checkbox" id="a11y-dyslexia"/><span class="slider"></span></label></div>
-  <button id="a11y-reset">Reset all</button>
-</div>
+A11Y = """<script src="https://ctf-widgets.netlify.app/v1/ada.js" defer data-position="bottom-left" data-color="#7C3AED" data-statement="/accessibility.html"></script>
 <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent">
   <p>We use cookies to improve your experience. By continuing, you agree to our <a href="/cookies.html">Cookie Policy</a>.</p>
   <div class="cookie-actions">
@@ -260,7 +234,6 @@ var hb=document.getElementById('hamburger'),mm=document.getElementById('mobile-m
 hb.addEventListener('click',function(){var o=mm.classList.toggle('open');hb.classList.toggle('open',o);hb.setAttribute('aria-expanded',o);});
 document.querySelectorAll('.mobile-link,.mobile-menu .btn').forEach(function(l){l.addEventListener('click',function(){mm.classList.remove('open');hb.classList.remove('open');hb.setAttribute('aria-expanded',false);});});
 (function(){var b=document.getElementById('cookieBanner');if(!b)return;if(!localStorage.getItem('ctf_cookie'))setTimeout(function(){b.classList.add('visible');},1200);function d(){b.classList.remove('visible');localStorage.setItem('ctf_cookie','1');}document.getElementById('cookieAccept').onclick=d;document.getElementById('cookieDismiss').onclick=d;})();
-(function(){var btn=document.getElementById("a11y-btn"),panel=document.getElementById("a11y-panel"),body=document.body,KEY="a11y_prefs",fs=100;function save(){localStorage.setItem(KEY,JSON.stringify({fontSize:fs,contrast:document.getElementById("a11y-contrast").checked,motion:document.getElementById("a11y-motion").checked,dyslexia:document.getElementById("a11y-dyslexia").checked}));}function applyFs(){document.documentElement.style.fontSize=fs===100?"":fs+"%";}function load(){try{var p=JSON.parse(localStorage.getItem(KEY)||"{}");if(p.fontSize){fs=p.fontSize;applyFs();}if(p.contrast){document.getElementById("a11y-contrast").checked=true;body.classList.add("a11y-high-contrast");}if(p.motion){document.getElementById("a11y-motion").checked=true;body.classList.add("a11y-reduce-motion");}if(p.dyslexia){document.getElementById("a11y-dyslexia").checked=true;body.classList.add("a11y-dyslexia");}}catch(e){}}btn.addEventListener("click",function(e){e.stopPropagation();var o=panel.classList.toggle("open");btn.setAttribute("aria-expanded",o);});document.addEventListener("click",function(e){if(!panel.contains(e.target)&&e.target!==btn){panel.classList.remove("open");btn.setAttribute("aria-expanded","false");}});document.addEventListener("keydown",function(e){if(e.key==="Escape"){panel.classList.remove("open");btn.focus();}});document.getElementById("a11y-inc").addEventListener("click",function(){fs=Math.min(fs+10,150);applyFs();save();});document.getElementById("a11y-dec").addEventListener("click",function(){fs=Math.max(fs-10,80);applyFs();save();});["contrast","motion","dyslexia"].forEach(function(id){document.getElementById("a11y-"+id).addEventListener("change",function(){body.classList.toggle("a11y-"+(id==="contrast"?"high-contrast":id==="motion"?"reduce-motion":"dyslexia"),this.checked);save();});});document.getElementById("a11y-reset").addEventListener("click",function(){fs=100;applyFs();["contrast","motion","dyslexia"].forEach(function(id){document.getElementById("a11y-"+id).checked=false;});body.classList.remove("a11y-high-contrast","a11y-reduce-motion","a11y-dyslexia");localStorage.removeItem(KEY);});load();})();
 </script>
 <script src="https://www.socalreceptionist.com/widget.js" data-name="CTF Designs" data-about="CTF Designs is a web design agency building fast, modern websites for small businesses. Pricing: Landing Page $299, Scrolling Single Page $499, Custom $1,499, eCommerce custom. Founder: Roman. Contact: roman@ctfdesigns.com." data-accent="#7b2fbe"></script>
 <script defer src="/newsletter-popup.js"></script>"""
