@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Send Us Your Files — CTF Designs</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Securely upload your logo, brand assets, content, and photos to CTF Designs for your project.">
+<link rel="canonical" href="https://ctfdesigns.com/upload.html">
+<style>
+:root{--bg:#070711;--card:#11111d;--line:#262636;--ink:#f3f4f6;--muted:#9aa3b2;--accent:#8b5cf6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+.wrap{max-width:620px;margin:0 auto;padding:48px 20px 90px}
+h1{font-size:1.8rem;margin:.2rem 0 .4rem}
+.sub{color:var(--muted);margin:0 0 26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+label{display:block;font-size:.85rem;font-weight:600;margin:16px 0 6px}
+label .opt{color:var(--muted);font-weight:400}
+input,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font-size:1rem;font-family:inherit;background:#0e0e1a;color:var(--ink)}
+input:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+textarea{min-height:96px;resize:vertical}
+input[type=file]{padding:10px;cursor:pointer}
+.hint{font-size:.78rem;color:var(--muted);margin-top:5px}
+button{margin-top:22px;width:100%;border:0;background:var(--accent);color:#fff;border-radius:10px;padding:14px;font-size:1.02rem;font-weight:700;cursor:pointer}
+button:hover{background:#7c3aed}button:disabled{opacity:.6;cursor:default}
+.hp{position:absolute;left:-9999px}
+#ok{display:none;text-align:center;padding:30px 10px}
+#ok .big{font-size:2.4rem}
+a.back{display:inline-block;margin-bottom:18px;color:var(--muted);font-size:.9rem;text-decoration:none}
+.foot{margin-top:22px;text-align:center;font-size:.8rem;color:var(--muted)}.foot a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="https://ctfdesigns.com/">&larr; CTF Designs</a>
+<h1>Send us your files</h1>
+<p class="sub">Drop your logo, brand assets, photos, and content here so we can get started. Everything goes straight to our team.</p>
+
+<div class="card">
+  <form name="client-upload" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field" id="frm">
+    <input type="hidden" name="form-name" value="client-upload">
+    <p class="hp"><label>Leave blank<input name="bot-field"></label></p>
+
+    <label for="name">Your name</label>
+    <input id="name" name="name" required>
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required>
+
+    <label for="company">Business / project name <span class="opt">(optional)</span></label>
+    <input id="company" name="company">
+
+    <label for="files">Your files</label>
+    <input id="files" name="files" type="file" multiple>
+    <p class="hint">Logo, photos, documents, anything. You can select multiple files. Max ~8 MB each.</p>
+
+    <label for="notes">Notes <span class="opt">(optional)</span></label>
+    <textarea id="notes" name="notes" placeholder="Anything we should know about these files or your project..."></textarea>
+
+    <button type="submit" id="btn">Send files</button>
+  </form>
+
+  <div id="ok">
+    <div class="big">✅</div>
+    <h2>Got it, thank you!</h2>
+    <p class="sub">Your files were sent to the CTF Designs team. We'll be in touch shortly.</p>
+  </div>
+</div>
+
+<p class="foot">A <a href="https://ctfdesigns.com" target="_blank" rel="noopener">CTF Designs</a> client upload page.</p>
+</div>
+
+<script>
+var f=document.getElementById('frm'),btn=document.getElementById('btn');
+f.addEventListener('submit',function(e){
+  e.preventDefault();
+  btn.disabled=true; btn.textContent='Sending...';
+  fetch('/',{method:'POST',body:new FormData(f)})
+    .then(function(){ f.style.display='none'; document.getElementById('ok').style.display='block'; })
+    .catch(function(){ btn.disabled=false; btn.textContent='Send files'; alert('Upload failed. Please try again or email roman@ctfdesigns.com.'); });
+});
+</script>
+<script src="https://ctf-widgets.netlify.app/v1/ada.js" defer data-position="bottom-left" data-color="#7c3aed" data-statement="/accessibility.html"></script>
+</body>
+</html>
