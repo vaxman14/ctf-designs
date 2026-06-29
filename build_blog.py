@@ -108,7 +108,7 @@ a{color:inherit}
 .mobile-menu.open{display:flex}
 .mobile-menu a{color:var(--muted);text-decoration:none;font-size:1.1rem;font-weight:500}
 /* blog */
-.blog-hero{padding:9rem 0 2.5rem;text-align:center}
+.blog-hero{padding:12rem 0 2.5rem;text-align:center}
 .blog-hero .kicker{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;color:#EC4899;margin-bottom:1rem}
 .blog-hero h1{font-size:clamp(2.4rem,6vw,3.6rem)}
 .blog-hero p{color:var(--muted);max-width:620px;margin:1rem auto 0;font-size:1.08rem}
@@ -164,7 +164,7 @@ footer{border-top:1px solid var(--card-border);padding:3rem 0 2rem;background:#0
 .cookie-banner a{color:var(--accent);text-decoration:none}
 .cookie-actions{display:flex;align-items:center;gap:1rem}
 .cookie-dismiss{background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer}
-@media(max-width:820px){.nav-links{display:none}.hamburger{display:flex}.footer-top{flex-direction:column}.nav-logo img{height:80px}}
+@media(max-width:820px){.nav-links{display:none}.hamburger{display:flex}.footer-top{flex-direction:column}.nav-logo img{height:80px}.blog-hero{padding-top:7rem}}
 """
 
 NAV = """<nav id="navbar">
