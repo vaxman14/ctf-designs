@@ -300,11 +300,11 @@ def build():
     index_body = f"""<header class="blog-hero"><div class="container">
   <div class="kicker">The Floof Factor</div>
   <h1 class="grad-text">Small-business web &amp; brand, unleashed.</h1>
-  <p>Practical tips on websites, branding, and getting found online — from CTF Designs. Named after Cheddar the Floof. 🐾</p>
+  <p>Practical tips on websites, branding, and getting found online. From CTF Designs. Named after Cheddar the Floof. 🐾</p>
 </div></header>
 <div class="container"><div class="post-grid">{grid}</div></div>"""
     open(os.path.join(OUT, "index.html"), "w", encoding="utf-8").write(
-        shell("The Floof Factor — CTF Designs Blog",
+        shell("The Floof Factor | CTF Designs Blog",
               "Practical web design, branding, and small-business growth tips from CTF Designs.",
               index_body, f"{SITE}/blog/"))
 
@@ -320,11 +320,11 @@ def build():
   <div class="post-body">{render_md(p['body_md'])}</div>
 </article>
 <div class="cta-card"><h3>Want a site that actually works this hard?</h3>
-  <p>CTF Designs builds fast, modern websites for small businesses — from $299.</p>
+  <p>CTF Designs builds fast, modern websites for small businesses, from $299.</p>
   <a class="btn btn-grad" href="/contact.html">Start a project →</a></div>
 <div style="height:3rem"></div>"""
         open(os.path.join(OUT, f"{p['slug']}.html"), "w", encoding="utf-8").write(
-            shell(f"{p['title']} — The Floof Factor",
+            shell(f"{p['title']} | The Floof Factor",
                   p["excerpt"] or p["title"], article, f"{SITE}/blog/{p['slug']}.html",
                   og_img=(p['cover'] if p['cover'].startswith('http') else None)))
     print(f"built {len(posts)} post(s) + index → {OUT}")
