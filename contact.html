@@ -229,6 +229,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  function gtag(){dataLayer.push(arguments);}
  gtag('js', new Date());
  gtag('config', 'G-0X9Q4PV3XT');
+ gtag('config', 'AW-18280523843');
 </script>
   <link rel="icon" href="images/logo.png" type="image/png">
 <!-- PostHog -->
@@ -478,6 +479,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (res.ok) {
         form.style.display = 'none';
         success.classList.add('visible');
+        if (typeof gtag === 'function') { gtag('event', 'conversion', { 'send_to': 'AW-18280523843/7dyPCKaQ-sccEMPQ6oxE', 'value': 1.0, 'currency': 'USD' }); }
       }
     } catch(err) {
       // Fallback: submit normally
