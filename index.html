@@ -461,5 +461,22 @@ addEventListener('scroll',()=>{hd.style.background = scrollY>40 ? 'rgba(255,255,
   !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
   posthog.init('phc_kriY6oLdrzX5te5K5BD2tByomTBNDY7MShafdbTSJB3E',{api_host:'https://us.i.posthog.com',person_profiles:'always'});
 </script>
+<style>
+.ck-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;transform:translateY(100%);transition:transform .4s;box-shadow:0 -8px 30px rgba(20,18,26,.08)}
+.ck-banner.show{transform:translateY(0)}
+.ck-banner p{font-size:14px;color:var(--ink-soft);flex:1;min-width:220px;margin:0}
+.ck-banner a{color:var(--violet);text-decoration:none;font-weight:600}
+.ck-actions{display:flex;align-items:center;gap:12px}
+.ck-x{background:none;border:0;color:var(--ink-soft);font-size:22px;cursor:pointer;line-height:1}
+</style>
+<div class="ck-banner" id="ckBanner" role="region" aria-label="Cookie consent">
+  <p>We use cookies to improve your experience. By continuing, you agree to our <a href="/cookies.html">Cookie Policy</a>.</p>
+  <div class="ck-actions">
+    <a href="/cookies.html" style="font-size:13px;color:var(--ink-soft)">Settings</a>
+    <button class="btn btn-primary" id="ckAccept" style="padding:10px 18px;font-size:14px">Accept</button>
+    <button class="ck-x" id="ckDismiss" aria-label="Close">&times;</button>
+  </div>
+</div>
+<script>(function(){var b=document.getElementById('ckBanner');if(!b)return;if(!localStorage.getItem('ctf_cookie'))setTimeout(function(){b.classList.add('show');},1000);function d(){b.classList.remove('show');localStorage.setItem('ctf_cookie','1');}var a=document.getElementById('ckAccept'),x=document.getElementById('ckDismiss');if(a)a.onclick=d;if(x)x.onclick=d;})();</script>
 </body>
 </html>
