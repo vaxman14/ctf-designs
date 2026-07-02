@@ -159,7 +159,7 @@ footer{border-top:1px solid var(--card-border);padding:3rem 0 2rem;background:#1
 .cookie-banner a{color:var(--accent);text-decoration:none}
 .cookie-actions{display:flex;align-items:center;gap:1rem}
 .cookie-dismiss{background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer}
-@media(max-width:820px){.nav-links{display:none}.hamburger{display:flex}.footer-top{flex-direction:column}.blog-hero{padding-top:7rem}}
+/*nav-cta-fit*/@media(max-width:560px){.btn-grad{white-space:nowrap;font-size:.78rem;padding:.5rem .9rem}.nav-logo img{height:36px}}@media(max-width:820px){.nav-links{display:none}.hamburger{display:flex}.footer-top{flex-direction:column}.blog-hero{padding-top:7rem}}
 """
 
 NAV = """<nav id="navbar">
