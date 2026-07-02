@@ -173,7 +173,7 @@ NAV = """<nav id="navbar">
     <li><a href="/audit.html" style="color:var(--orange);font-weight:700">Free Audit</a></li>
     <li><a href="/contact.html">Contact</a></li>
   </ul>
-  <a href="/contact.html" class="btn btn-grad" style="font-size:.85rem;padding:.6rem 1.25rem;">Get a quote</a>
+  <a href="/audit.html" class="btn btn-grad" style="font-size:.85rem;padding:.6rem 1.25rem;">Get a free audit</a>
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
@@ -184,7 +184,7 @@ NAV = """<nav id="navbar">
   <a href="/pricing.html" class="mobile-link">Pricing</a>
   <a href="/audit.html" class="mobile-link" style="color:var(--orange);font-weight:700">Free Audit</a>
   <a href="/contact.html" class="mobile-link">Contact</a>
-  <a href="/contact.html" class="btn btn-grad" style="width:fit-content;margin-top:.5rem;">Get a quote</a>
+  <a href="/audit.html" class="btn btn-grad" style="width:fit-content;margin-top:.5rem;">Get a free audit</a>
 </div>"""
 
 FOOTER = """<footer>
