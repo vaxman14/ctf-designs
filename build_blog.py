@@ -204,7 +204,7 @@ FOOTER = """<footer>
           <li><a href="/index.html#services">Web Design</a></li><li><a href="/index.html#services">E-Commerce</a></li>
           <li><a href="/index.html#services">Maintenance</a></li><li><a href="/index.html#services">Domain Setup</a></li></ul></div>
         <div class="footer-col"><h4>Legal</h4><ul>
-          <li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/cookies.html">Cookie Policy</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms of Use</a></li><li><a href="/cookies.html">Cookie Policy</a></li>
           <li><a href="/accessibility.html">Accessibility</a></li></ul></div>
       </div>
     </div>
