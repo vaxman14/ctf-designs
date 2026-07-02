@@ -262,7 +262,7 @@ footer{background:#100a06;color:var(--on-dark-soft);padding:54px 0 34px}
 </div></section>
 <section class="soft"><div class="wrap">
   <div class="sec-head rv"><span class="eyebrow">No strings attached</span><h2>Get your free audit</h2><p>Drop your website below and a real CTF designer will personally go through it, by hand, start to finish, and send you a full report — usually within 48 hours. Not an automated score. A human expert. Use us to fix it, or don't; either way the report is yours.</p></div>
-  <form class="lf rv" name="audit" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+  <form class="lf rv" name="audit" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you">
     <input type="hidden" name="form-name" value="audit" />
     <p style="display:none;"><label>Skip if human: <input name="bot-field" /></label></p>
     <label>Your website</label>
@@ -317,6 +317,7 @@ addEventListener('scroll',()=>{hd.style.background = scrollY>40 ? 'rgba(255,255,
  function gtag(){dataLayer.push(arguments);}
  gtag('js', new Date());
  gtag('config', 'G-0X9Q4PV3XT');
+ gtag('config', 'AW-18280523843');
 </script>
 <!-- PostHog -->
 <script>
