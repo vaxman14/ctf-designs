@@ -170,6 +170,7 @@ NAV = """<nav id="navbar">
     <li><a href="/about.html">About</a></li>
     <li><a href="/blog/" class="active">Blog</a></li>
     <li><a href="/pricing.html">Pricing</a></li>
+    <li><a href="/audit.html" style="color:var(--orange);font-weight:700">Free Audit</a></li>
     <li><a href="/contact.html">Contact</a></li>
   </ul>
   <a href="/contact.html" class="btn btn-grad" style="font-size:.85rem;padding:.6rem 1.25rem;">Get a quote</a>
@@ -181,6 +182,7 @@ NAV = """<nav id="navbar">
   <a href="/about.html" class="mobile-link">About</a>
   <a href="/blog/" class="mobile-link">Blog</a>
   <a href="/pricing.html" class="mobile-link">Pricing</a>
+  <a href="/audit.html" class="mobile-link" style="color:var(--orange);font-weight:700">Free Audit</a>
   <a href="/contact.html" class="mobile-link">Contact</a>
   <a href="/contact.html" class="btn btn-grad" style="width:fit-content;margin-top:.5rem;">Get a quote</a>
 </div>"""
