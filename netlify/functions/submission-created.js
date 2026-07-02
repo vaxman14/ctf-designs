@@ -12,6 +12,24 @@ exports.handler = async (event) => {
     const body = JSON.parse(event.body || '{}');
     const payload = body.payload || {};
     const form = payload.form_name || (payload.data && payload.data['form-name']) || '';
+
+    // Instant-scan lead: the visitor ran the /scan tool and entered their email
+    // to unlock the full report. The scan already ran client-side, so just email
+    // Roman the lead fast (speed-to-lead).
+    if (form === 'scan-lead') {
+      const d = payload.data || {};
+      const site = String(d.website || '').trim();
+      const html = `
+        <h2 style="font-family:sans-serif">New instant-scan lead</h2>
+        <p style="font-family:sans-serif">
+          <b>Email:</b> ${esc(d.email || '')}<br>
+          <b>Scanned site:</b> <a href="${esc(site)}">${esc(site)}</a>
+        </p>
+        <p style="font-family:sans-serif;color:#888;font-size:12px">They used the free /scan tool and unlocked the full report. Warm lead — follow up with a personal audit offer.</p>`;
+      await sendEmail(`⚡ Instant-scan lead: ${site || d.email || 'new lead'}`, html);
+      return { statusCode: 200, body: 'ok (scan-lead)' };
+    }
+
     if (form !== 'audit') return { statusCode: 200, body: 'ignored (not audit form)' };
 
     const d = payload.data || {};
