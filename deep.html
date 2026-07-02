@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>CTF Deep Scan (private)</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#0e1524;color:#e8eef7;line-height:1.5}
+.wrap{max-width:920px;margin:0 auto;padding:34px 22px}
+h1{font-size:24px;font-weight:800}h1 span{background:linear-gradient(100deg,#a855f7,#7c3aed,#ff7a1a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:#93a4bd;margin:7px 0 22px;font-size:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+input[type=url]{flex:1;min-width:240px;padding:14px 15px;border-radius:10px;border:1px solid #2a3750;background:#131c2e;color:#fff;font-size:15px}
+button{background:linear-gradient(100deg,#9d5cff,#7c3aed);color:#fff;border:0;padding:14px 22px;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer}
+button:disabled{opacity:.55;cursor:wait}
+.err{color:#ff8a8a;margin:12px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.card{background:#131c2e;border:1px solid #2a3750;border-radius:14px;padding:18px 20px}
+.card h3{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#93a4bd;margin-bottom:14px}
+.scores{display:flex;gap:16px;flex-wrap:wrap}
+.sc{text-align:center}.sc .v{font-size:30px;font-weight:800;font-family:'Space Grotesk',sans-serif}.sc .l{font-size:11px;color:#93a4bd;text-transform:uppercase}
+.g{color:#2bb673}.y{color:#f0a020}.r{color:#e05252}
+.vit{display:flex;gap:14px;margin-top:12px;font-size:13px;color:#c3d0e2;flex-wrap:wrap}
+.opps{margin-top:22px}
+.opp{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #1e2a40;font-size:14px}
+.opp .s{color:#f0a020;font-size:12px;white-space:nowrap}
+.checks{margin-top:20px;display:grid;gap:8px}
+.chk{display:flex;gap:12px;align-items:flex-start;background:#131c2e;border:1px solid #2a3750;border-radius:10px;padding:11px 14px}
+.chk .d{width:18px;height:18px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;color:#fff;font-size:11px;font-weight:700;margin-top:2px}
+.chk.pass .d{background:#2bb673}.chk.warn .d{background:#f0a020}.chk.fail .d{background:#e05252}
+.chk h4{font-size:14px}.chk p{font-size:12.5px;color:#93a4bd}
+.spin{display:inline-block;width:16px;height:16px;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite;vertical-align:-2px;margin-right:7px}
+@keyframes sp{to{transform:rotate(360deg)}}
+#gate{position:fixed;inset:0;z-index:99;background:#0b1220;display:flex;align-items:center;justify-content:center}
+#gate input{padding:13px 15px;border-radius:9px;border:1px solid #2a3750;background:#131c2e;color:#fff;font-size:15px;width:230px}
+#gate .k{color:#7c3aed;letter-spacing:.12em;font-size:13px;margin-bottom:16px;text-align:center}
+#gerr{color:#ff8a8a;font-size:13px;height:16px;margin-top:12px;text-align:center}
+a{color:#9d7bff}
+</style>
+</head>
+<body>
+<div id="gate"><div><div class="k">CTF · PRIVATE TOOL</div>
+  <div style="text-align:center"><input id="gpw" type="password" placeholder="Password" autofocus>
+  <button onclick="unlock()" style="margin-left:8px">Enter</button></div>
+  <div id="gerr"></div></div></div>
+
+<div class="wrap">
+  <h1>Deep <span>Scan</span></h1>
+  <div class="sub">Private prep tool. Light checks + Google Lighthouse (mobile &amp; desktop). Everything, ungated.</div>
+  <div class="row">
+    <input id="url" type="url" placeholder="clientsite.com" autofocus>
+    <button id="go" onclick="run()">Scan →</button>
+  </div>
+  <div class="err" id="err"></div>
+  <div id="out" style="display:none">
+    <div class="grid2">
+      <div class="card"><h3>📱 Mobile (Lighthouse)</h3><div id="m-scores" class="scores"></div><div id="m-vit" class="vit"></div></div>
+      <div class="card"><h3>🖥 Desktop (Lighthouse)</h3><div id="d-scores" class="scores"></div><div id="d-vit" class="vit"></div></div>
+    </div>
+    <div class="card opps" id="oppcard"><h3>Top performance opportunities (mobile)</h3><div id="opps"></div></div>
+    <h3 style="margin:26px 0 0;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:#93a4bd">Light checks</h3>
+    <div class="checks" id="checks"></div>
+    <div style="margin-top:18px"><a id="psilink" target="_blank">Open full PageSpeed report →</a></div>
+  </div>
+</div>
+
+<script>
+function unlock(){var v=document.getElementById('gpw').value;
+  if(v==='Ilovepedr0!'){sessionStorage.setItem('ctf_deep','1');document.getElementById('gate').style.display='none';}
+  else{document.getElementById('gerr').textContent='Wrong password';}}
+if(sessionStorage.getItem('ctf_deep')==='1')document.getElementById('gate').style.display='none';
+document.addEventListener('keydown',function(e){if(e.key==='Enter'){if(document.getElementById('gate').style.display!=='none')unlock();else if(document.activeElement&&document.activeElement.id==='url')run();}});
+
+function cls(v){return v==null?'':v>=90?'g':v>=50?'y':'r';}
+function scoreHtml(o){
+  if(o.error) return '<div style="color:#e05252;font-size:13px">'+o.error+'</div>';
+  function s(v,l){return '<div class="sc"><div class="v '+cls(v)+'">'+(v==null?'–':v)+'</div><div class="l">'+l+'</div></div>';}
+  return s(o.performance,'Perf')+s(o.seo,'SEO')+s(o.accessibility,'A11y')+s(o.bestPractices,'Best');
+}
+function vitHtml(o){if(o.error)return '';var p=[];if(o.lcp)p.push('LCP '+o.lcp);if(o.cls)p.push('CLS '+o.cls);if(o.tbt)p.push('TBT '+o.tbt);return p.map(function(x){return '<span>'+x+'</span>';}).join('');}
+function run(){
+  var raw=document.getElementById('url').value.trim();
+  var err=document.getElementById('err'); err.textContent='';
+  if(!raw){err.textContent='Enter a URL';return;}
+  var go=document.getElementById('go'); go.disabled=true; go.innerHTML='<span class="spin"></span>Scanning…';
+  document.getElementById('out').style.display='none';
+  Promise.all([
+    fetch('/.netlify/functions/scan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:raw})}).then(function(r){return r.json();}),
+    fetch('/.netlify/functions/deepscan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:raw})}).then(function(r){return r.json();})
+  ]).then(function(res){
+    go.disabled=false; go.textContent='Scan →';
+    var light=res[0], deep=res[1];
+    if(light.error && deep.error){err.textContent=light.error;return;}
+    var m=deep.mobile||{}, d=deep.desktop||{};
+    document.getElementById('m-scores').innerHTML=scoreHtml(m);
+    document.getElementById('d-scores').innerHTML=scoreHtml(d);
+    document.getElementById('m-vit').innerHTML=vitHtml(m);
+    document.getElementById('d-vit').innerHTML=vitHtml(d);
+    var opps=(m.opportunities||[]);
+    document.getElementById('opps').innerHTML = opps.length? opps.map(function(o){return '<div class="opp"><span>'+o.title+'</span><span class="s">'+(o.savings||'')+'</span></div>';}).join('') : '<div style="color:#93a4bd;font-size:13px">No major opportunities flagged.</div>';
+    document.getElementById('oppcard').style.display = opps.length?'block':'none';
+    var checks=(light.checks||[]);
+    document.getElementById('checks').innerHTML = checks.map(function(c){return '<div class="chk '+c.status+'"><div class="d">'+(c.status==='pass'?'✓':c.status==='warn'?'!':'✕')+'</div><div><h4>'+c.label+'</h4><p>'+c.detail+'</p></div></div>';}).join('');
+    if(deep.report){var a=document.getElementById('psilink');a.href=deep.report;}
+    document.getElementById('out').style.display='block';
+  }).catch(function(e){go.disabled=false;go.textContent='Scan →';err.textContent='Error: '+e;});
+}
+</script>
+</body>
+</html>
