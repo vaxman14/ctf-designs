@@ -10,7 +10,7 @@
 // Env: GROQ_API_KEY (set on the Netlify site, functions scope).
 
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
-const MODEL = 'llama-3.3-70b-versatile';
+const MODEL = process.env.GROQ_MODEL || 'openai/gpt-oss-120b';
 
 const SYSTEM_PROMPT = `You are the friendly AI assistant on the website of CTF Designs, a web design agency. (CTF = Cheddar The Floof, the founder Roman's corgi mascot.)
 
