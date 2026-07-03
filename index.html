@@ -493,5 +493,39 @@ addEventListener('scroll',()=>{hd.style.background = scrollY>40 ? 'rgba(255,255,
   </div>
 </div>
 <script>(function(){var b=document.getElementById('ckBanner');if(!b)return;if(!localStorage.getItem('ctf_cookie'))setTimeout(function(){b.classList.add('show');},1000);function d(){b.classList.remove('show');localStorage.setItem('ctf_cookie','1');}var a=document.getElementById('ckAccept'),x=document.getElementById('ckDismiss');if(a)a.onclick=d;if(x)x.onclick=d;})();</script>
+<!-- July 4th doodle: patriotic hat on Cheddar + a little waving flag. Auto-shows July 3-5, gone after. -->
+<style>
+.july4-logo{position:relative;display:inline-flex}
+.july4-hat{position:absolute;top:-15px;left:-8px;width:26px;height:auto;transform:rotate(-17deg);pointer-events:none;filter:drop-shadow(0 1px 1px rgba(0,0,0,.25))}
+.july4-flag{width:20px;height:auto;margin-left:7px;transform-origin:bottom left;animation:july4wave 2.4s ease-in-out infinite}
+@keyframes july4wave{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(4deg)}}
+@media(prefers-reduced-motion:reduce){.july4-flag{animation:none}}
+</style>
+<script>
+(function(){
+  var d=new Date();
+  if(d.getMonth()!==6 || d.getDate()<3 || d.getDate()>5) return;
+  var brand=document.querySelector('.brand'); if(!brand) return;
+  var img=brand.querySelector('img'); if(!img) return;
+  var wrap=document.createElement('span'); wrap.className='july4-logo';
+  img.parentNode.insertBefore(wrap,img); wrap.appendChild(img);
+  var hat='<svg class="july4-hat" viewBox="0 0 48 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
+    +'<ellipse cx="24" cy="33" rx="21" ry="5" fill="#fff"/><ellipse cx="24" cy="33" rx="21" ry="5" fill="none" stroke="#c8102e" stroke-width="2"/>'
+    +'<rect x="12" y="6" width="24" height="26" rx="4" fill="#fff"/>'
+    +'<rect x="12" y="10" width="24" height="3" fill="#c8102e"/><rect x="12" y="16" width="24" height="3" fill="#c8102e"/>'
+    +'<rect x="12" y="21" width="24" height="8" fill="#3c3b6e"/>'
+    +'<circle cx="18" cy="25" r="1.1" fill="#fff"/><circle cx="24" cy="25" r="1.1" fill="#fff"/><circle cx="30" cy="25" r="1.1" fill="#fff"/>'
+    +'</svg>';
+  wrap.insertAdjacentHTML('beforeend',hat);
+  var flag='<svg class="july4-flag" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
+    +'<rect x="6" y="3" width="2.2" height="35" rx="1.1" fill="#7a5230"/>'
+    +'<rect x="8" y="4" width="27" height="18" fill="#fff"/>'
+    +'<rect x="8" y="4" width="27" height="2.6" fill="#c8102e"/><rect x="8" y="9.2" width="27" height="2.6" fill="#c8102e"/><rect x="8" y="14.4" width="27" height="2.6" fill="#c8102e"/><rect x="8" y="19.6" width="27" height="2.4" fill="#c8102e"/>'
+    +'<rect x="8" y="4" width="12" height="9" fill="#3c3b6e"/>'
+    +'<circle cx="11" cy="6.5" r=".7" fill="#fff"/><circle cx="15" cy="6.5" r=".7" fill="#fff"/><circle cx="13" cy="9.5" r=".7" fill="#fff"/><circle cx="17" cy="9.5" r=".7" fill="#fff"/>'
+    +'</svg>';
+  brand.insertAdjacentHTML('beforeend',flag);
+})();
+</script>
 </body>
 </html>
