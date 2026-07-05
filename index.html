@@ -537,7 +537,7 @@ addEventListener('scroll',()=>{hd.style.background = scrollY>40 ? 'rgba(255,255,
 .hero--dark:before{background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px)}
 .hero--dark #heroCanvas{position:absolute;inset:0;z-index:0;width:100%;height:100%;display:block;pointer-events:none}
 .hero--dark:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(62% 58% at 50% 44%, rgba(10,8,18,.74), rgba(10,8,18,.28) 68%, transparent)}
+  background:radial-gradient(58% 54% at 50% 44%, rgba(10,8,18,.52), rgba(10,8,18,.14) 66%, transparent)}
 .hero--dark .wrap{position:relative;z-index:2}
 .hero--dark h1{color:#fff}
 .hero--dark p.lead{color:#cfc8e8}
@@ -562,8 +562,8 @@ addEventListener('scroll',()=>{hd.style.background = scrollY>40 ? 'rgba(255,255,
       renderer.setPixelRatio(Math.min(devicePixelRatio,2)); renderer.setSize(W,H,false);
       var geo=new THREE.IcosahedronGeometry(1.35,10); var base=geo.attributes.position.array.slice();
       var blob=new THREE.Mesh(geo, new THREE.MeshStandardMaterial({color:0x140f28,metalness:0.55,roughness:0.18})); scene.add(blob);
-      var vio=new THREE.PointLight(0x7c3aed,90,30); vio.position.set(3,2,4); scene.add(vio);
-      var org=new THREE.PointLight(0xff7a1a,70,30); org.position.set(-3,-2,3); scene.add(org);
+      var vio=new THREE.PointLight(0x7c3aed,120,30); vio.position.set(3,2,4); scene.add(vio);
+      var org=new THREE.PointLight(0xff7a1a,95,30); org.position.set(-3,-2,3); scene.add(org);
       scene.add(new THREE.AmbientLight(0x201a3a,1.2));
       var pc=600, pg=new THREE.BufferGeometry(), pp=new Float32Array(pc*3);
       for(var i=0;i<pc;i++){var r=3+Math.random()*6,t=Math.random()*6.28,ph=Math.acos(2*Math.random()-1);
