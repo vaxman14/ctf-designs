@@ -554,7 +554,7 @@ addEventListener('scroll',()=>{hd.style.background = scrollY>40 ? 'rgba(255,255,
   var started=false;
   function start(){
     if(started) return; started=true;
-    import('https://unpkg.com/three@0.160.0/build/three.module.js').then(function(THREE){
+    import('/vendor/three.module.js').then(function(THREE){
       var W=host.clientWidth, H=host.clientHeight;
       var scene=new THREE.Scene();
       var camera=new THREE.PerspectiveCamera(45, W/H, 0.1, 100); camera.position.set(0,0,5.2);
