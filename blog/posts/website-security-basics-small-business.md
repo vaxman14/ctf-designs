@@ -6,6 +6,7 @@ author: Roman
 read: 5 min read
 kicker: The Floof Factor
 excerpt: Every hour, automated bots probe small-business websites looking for one easy way in. The good news is you don't need enterprise security to shut them out. You need the basics done right.
+cover: https://ctfdesigns.com/blog/images/website-security.jpg
 ---
 
 Right now, while you're reading this, automated programs are knocking on your website's door. Not because someone is targeting your business by name. Because they target everyone, all the time, automatically.
