@@ -7,7 +7,7 @@ Wrapped in the CTF Designs chrome (nav, footer, ADA widget, cookie banner,
 chat widget, newsletter popup). No external deps — mini markdown renderer.
 Run: python3 build_blog.py
 """
-import os, re, html, glob
+import os, re, html, glob, json
 
 ROOT = "/Users/roman/ctfdesigns"
 POSTS = os.path.join(ROOT, "blog", "posts")
@@ -236,8 +236,9 @@ document.querySelectorAll('.mobile-link,.mobile-menu .btn').forEach(function(l){
 <script src="https://www.socalreceptionist.com/widget.js" data-name="CTF Designs" data-about="CTF Designs is a web design agency building fast, modern websites for small businesses. Pricing: Landing Page $299, Scrolling Single Page $499, Custom $1,499, eCommerce custom. Founder: Roman. Contact: roman@ctfdesigns.com." data-accent="#7b2fbe"></script>
 <script defer src="/newsletter-popup.js"></script>"""
 
-def shell(title, desc, body, canonical, og_img=None):
+def shell(title, desc, body, canonical, og_img=None, ld=None):
     og = og_img or f"{SITE}/images/logo.png"
+    ld_html = f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>' if ld else ""
     return f"""<!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title>
@@ -248,6 +249,7 @@ def shell(title, desc, body, canonical, og_img=None):
 <meta property="og:url" content="{canonical}"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/images/logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+{ld_html}
 {GA}
 <style>{CSS}</style></head><body>
 {NAV}
@@ -321,10 +323,27 @@ def build():
   <p>CTF Designs builds fast, modern websites for small businesses, from $299.</p>
   <a class="btn btn-grad" href="/contact.html">Start a project →</a></div>
 <div style="height:3rem"></div>"""
+        post_url = f"{SITE}/blog/{p['slug']}.html"
+        post_img = p['cover'] if p['cover'].startswith('http') else f"{SITE}/images/logo.png"
+        ld = {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": p['title'],
+            "description": p["excerpt"] or p["title"],
+            "image": post_img,
+            "datePublished": p['date'],
+            "dateModified": p['date'],
+            "author": {"@type": "Person", "name": p['author']},
+            "publisher": {"@type": "Organization", "name": "CTF Designs",
+                          "logo": {"@type": "ImageObject", "url": f"{SITE}/images/logo.png"}},
+            "mainEntityOfPage": {"@type": "WebPage", "@id": post_url},
+            "url": post_url,
+        }
         open(os.path.join(OUT, f"{p['slug']}.html"), "w", encoding="utf-8").write(
             shell(f"{p['title']} | The Floof Factor",
-                  p["excerpt"] or p["title"], article, f"{SITE}/blog/{p['slug']}.html",
-                  og_img=(p['cover'] if p['cover'].startswith('http') else None)))
+                  p["excerpt"] or p["title"], article, post_url,
+                  og_img=(p['cover'] if p['cover'].startswith('http') else None),
+                  ld=ld))
     print(f"built {len(posts)} post(s) + index → {OUT}")
 
 if __name__ == "__main__":
