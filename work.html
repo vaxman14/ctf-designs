@@ -104,6 +104,15 @@ section.soft{padding:96px 0;background:var(--bg-soft)}
 .work .ov .cat{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-soft)}
 .work .ov h3{font-size:19px;margin-top:4px}
 .work .badge{position:absolute;top:12px;right:12px;z-index:2;background:var(--grad);color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px;box-shadow:0 4px 12px rgba(12,9,20,.25)}
+.tools-sec{padding:44px 0 96px;background:var(--bg-soft);border-top:1px solid var(--line)}
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tool-chip{display:flex;flex-direction:column;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--bg);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.tool-chip:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(20,18,26,.09);border-color:var(--violet)}
+.tool-chip .tname{font-weight:700;font-size:16px;color:var(--ink);display:flex;align-items:center;gap:8px}
+.tool-chip .tdesc{color:var(--ink-soft);font-size:13.5px;margin-top:7px;line-height:1.45;flex:1}
+.tool-chip .tgo{color:var(--violet);font-size:12px;font-weight:600;letter-spacing:.04em;margin-top:12px}
+@media(max-width:900px){.tools-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.tools-grid{grid-template-columns:1fr}}
 .work.soon .ov{opacity:1;background:linear-gradient(to top,rgba(12,9,20,.7),transparent 55%)}
 
 /* process */
@@ -246,6 +255,20 @@ footer{background:#100a06;color:var(--on-dark-soft);padding:54px 0 34px}
 <div class="sec-head rv"><span class="eyebrow">Selected work</span><h2>Real sites. Real businesses.</h2><p>A few things we've designed, built, and shipped.</p></div>
 <div class="work-grid"><a class="work rv soon" href="https://getimpetus.app" target="_blank" rel="noopener"><span class="badge">Coming Soon</span><img src="images/work/impetus.png" alt="Impetus — AI coach for ADHD"><div class="ov"><div class="cat">iOS &amp; Android · AI Coach</div><h3>Impetus</h3></div></a><a class="work rv" href="https://cartharsis.app" target="_blank" rel="noopener"><img src="images/work/cartharsis.png" alt="Cartharsis — dopamine e-commerce concept store"><div class="ov"><div class="cat">E-commerce · Web App</div><h3>Cartharsis</h3></div></a><a class="work rv" href="https://californiawageandhourcalculator.com" target="_blank" rel="noopener"><img src="images/work/wagecalc.png" alt="California Wage &amp; Hour Calculator"><div class="ov"><div class="cat">Free Tool · Legal Tech</div><h3>CA Wage &amp; Hour Calculator</h3></div></a><a class="work rv" href="contact.html"><img src="images/work/socal.png" alt="SoCal Receptionist"><div class="ov"><div class="cat">SaaS · Voice AI</div><h3>SoCal Receptionist</h3></div></a><a class="work rv" href="contact.html"><img src="images/work/quotejot.png" alt="QuoteJot"><div class="ov"><div class="cat">Web App</div><h3>QuoteJot</h3></div></a><a class="work rv cerb" href="https://cerberusscan.com" target="_blank" rel="noopener"><img src="images/work/cerberus.png" alt="Cerberus — website security scanner"><div class="ov"><div class="cat">Security Tool</div><h3>Cerberus</h3></div></a><a class="work rv" href="contact.html"><img src="images/work/cyril.png" alt="Chef Cyril Kabaoglu"><div class="ov"><div class="cat">Portfolio</div><h3>Chef Cyril Kabaoglu</h3></div></a><a class="work rv" href="contact.html"><img src="images/work/datescamcheck.png" alt="DateScamCheck"><div class="ov"><div class="cat">Consumer Tool</div><h3>DateScamCheck</h3></div></a><a class="work rv" href="contact.html"><img src="images/work/fillsign.png" alt="FillSign"><div class="ov"><div class="cat">Document Tool</div><h3>FillSign</h3></div></a></div>
 <div style="text-align:center;margin-top:40px" class="rv"><a class="btn btn-primary" href="contact.html">Start your project →</a></div>
+</div></section>
+
+<section class="tools-sec"><div class="wrap">
+<div class="sec-head rv"><span class="eyebrow">Free tools</span><h2>Mini tools we built</h2><p>Small, fast, free utilities. No sign-up, no catch, just useful.</p></div>
+<div class="tools-grid">
+<a class="tool-chip rv" href="https://coolfancytext.com" target="_blank" rel="noopener"><span class="tname">✨ Fancy Text Generator</span><span class="tdesc">Copy-paste stylish Unicode fonts for bios and posts.</span><span class="tgo">Open tool →</span></a>
+<a class="tool-chip rv" href="https://heicjpgtool.com" target="_blank" rel="noopener"><span class="tname">🖼️ HEIC to JPG</span><span class="tdesc">Convert iPhone HEIC photos to JPG in your browser.</span><span class="tgo">Open tool →</span></a>
+<a class="tool-chip rv" href="https://getmergepdf.com" target="_blank" rel="noopener"><span class="tname">📄 Merge PDF</span><span class="tdesc">Combine multiple PDFs into one, right on your device.</span><span class="tgo">Open tool →</span></a>
+<a class="tool-chip rv" href="https://freeqrcodetool.com" target="_blank" rel="noopener"><span class="tname">🔳 QR Code Generator</span><span class="tdesc">Create custom QR codes for free, no watermark.</span><span class="tgo">Open tool →</span></a>
+<a class="tool-chip rv" href="https://getwordcounter.com" target="_blank" rel="noopener"><span class="tname">🔢 Word Counter</span><span class="tdesc">Live word, character, and sentence counts as you type.</span><span class="tgo">Open tool →</span></a>
+<a class="tool-chip rv" href="https://docxtopdfs.com" target="_blank" rel="noopener"><span class="tname">📃 DOCX to PDF</span><span class="tdesc">Turn Word documents into clean PDFs instantly.</span><span class="tgo">Open tool →</span></a>
+<a class="tool-chip rv" href="https://wordscrabblegenerator.com" target="_blank" rel="noopener"><span class="tname">🔤 Scrabble Word Finder</span><span class="tdesc">Unscramble letters and find every valid word.</span><span class="tgo">Open tool →</span></a>
+<a class="tool-chip rv" href="https://wpd2docx.com" target="_blank" rel="noopener"><span class="tname">📝 WPD to DOCX</span><span class="tdesc">Convert old WordPerfect files to modern Word format.</span><span class="tgo">Open tool →</span></a>
+</div>
 </div></section>
 
 <footer>
