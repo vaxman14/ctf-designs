@@ -29,7 +29,7 @@ I will take some of the best examples and break down what I would build instead.
 
 ## CTF Designs LinkedIn
 
-Graphic: `images/social/tell-us-the-annoying-part/linkedin-ctf-v2.png`
+Graphic: `images/social/tell-us-the-annoying-part/linkedin-ctf-v3.png`
 
 LinkedIn direction: business-first, no standalone corgi imagery. Use the official
 CTF logo rather than an invented campaign mark.
