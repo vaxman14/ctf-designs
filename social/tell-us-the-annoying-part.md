@@ -48,7 +48,7 @@ We will choose a few real examples and show what a cleaner workflow, interface, 
 
 ## Instagram
 
-Graphic: `images/social/tell-us-the-annoying-part/portrait.png`
+Graphic: `images/social/tell-us-the-annoying-part/portrait-v2.png`
 
 The corgi-led creative is intentional here because the lighter mascot treatment
 fits the platform and remains part of CTF's brand.
