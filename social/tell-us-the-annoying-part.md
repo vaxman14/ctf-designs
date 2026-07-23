@@ -4,6 +4,11 @@ Campaign draft created July 23, 2026.
 
 ## Personal LinkedIn
 
+Graphic: `images/social/tell-us-the-annoying-part/linkedin-personal-v2.png`
+
+LinkedIn direction: business-first, no standalone corgi imagery. The official CTF
+logo appears only as a small sponsor mark.
+
 What is the most annoying piece of software you use at work every day?
 
 Not the dramatic outage. I mean the small thing everyone has quietly accepted.
@@ -24,6 +29,11 @@ I will take some of the best examples and break down what I would build instead.
 
 ## CTF Designs LinkedIn
 
+Graphic: `images/social/tell-us-the-annoying-part/linkedin-ctf-v2.png`
+
+LinkedIn direction: business-first, no standalone corgi imagery. Use the official
+CTF logo rather than an invented campaign mark.
+
 The most expensive software problems are often too ordinary to get called problems.
 
 They look like copying one lead into three systems. Chasing an approval through email. Rebuilding the same report every Friday. Explaining a confusing portal to every new customer.
@@ -37,6 +47,11 @@ Tell us the annoying part.
 We will choose a few real examples and show what a cleaner workflow, interface, or small custom app could look like.
 
 ## Instagram
+
+Graphic: `images/social/tell-us-the-annoying-part/portrait.png`
+
+The corgi-led creative is intentional here because the lighter mascot treatment
+fits the platform and remains part of CTF's brand.
 
 What tiny piece of software friction wastes your time every day?
 
@@ -65,4 +80,3 @@ What is one small, annoying piece of software or website friction you deal with 
 Not a giant outage. The ordinary thing everyone has accepted even though it wastes time every day.
 
 Tell us the annoying part. We will pick a few examples and explain what we would change or build to fix them.
-
