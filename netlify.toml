@@ -4,6 +4,20 @@
 [functions]
   directory = "netlify/functions"
 
+# WIMP demo app — static PWA lives in /wimp, API proxies to claw via CF tunnel.
+# These two rules MUST stay above the /* catch-all.
+[[redirects]]
+  from = "/wimp/api/*"
+  to = "https://wimp-api.hephy.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/wimp/*"
+  to = "/wimp/index.html"
+  status = 200
+  force = false
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

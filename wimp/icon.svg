@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#1a1028"/>
+  <polygon points="256,40 293,88 351,60 362,122 424,116 405,176 462,201 420,248 462,295 405,320 424,380 362,374 351,436 293,408 256,456 219,408 161,436 150,374 88,380 107,320 50,295 92,248 50,201 107,176 88,116 150,122 161,60 219,88" fill="#8b5cf6"/>
+  <text x="256" y="300" font-family="Impact, 'Arial Black', sans-serif" font-size="150" font-weight="bold" text-anchor="middle" fill="#ffd93b" stroke="#ff3d5a" stroke-width="6">W!?</text>
+</svg>
