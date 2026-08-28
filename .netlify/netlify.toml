@@ -1,13 +1,13 @@
-functionsDirectory = "/Users/roman/ctfdesigns/netlify/functions"
+functionsDirectory = "/Volumes/josi/Projects/ctf-designs/netlify/functions"
 functionsDirectoryOrigin = "config"
 headersOrigin = "config"
 redirectsOrigin = "config"
 plugins = []
 
 [build]
-publish = "/Users/roman/ctfdesigns"
+publish = "/Volumes/josi/Projects/ctf-designs"
 publishOrigin = "config"
-functions = "/Users/roman/ctfdesigns/netlify/functions"
+functions = "/Volumes/josi/Projects/ctf-designs/netlify/functions"
 
 [build.environment]
 
@@ -36,6 +36,30 @@ X-Content-Type-Options = "nosniff"
 Referrer-Policy = "strict-origin-when-cross-origin"
 Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://us.i.posthog.com https://us-assets.i.posthog.com https://www.socalreceptionist.com https://ctf-widgets.netlify.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://us.i.posthog.com https://us-assets.i.posthog.com https://www.socalreceptionist.com; frame-src 'self' https://www.googletagmanager.com https://www.socalreceptionist.com https://calendar.google.com; form-action 'self' https://www.socalreceptionist.com; upgrade-insecure-requests"
 Permissions-Policy = "accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=(), interest-cohort=()"
+
+[[redirects]]
+from = "/wimp/api/*"
+to = "https://wimp-api.hephy.app/:splat"
+status = 200.0
+force = true
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
+
+[[redirects]]
+from = "/wimp/*"
+to = "/wimp/index.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
 
 [[redirects]]
 from = "/*"
