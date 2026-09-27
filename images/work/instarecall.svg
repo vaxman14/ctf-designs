@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">InstaRecall</title><desc id="desc">Android reminder app portfolio card</desc>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#14251f"/><stop offset=".55" stop-color="#1c6b50"/><stop offset="1" stop-color="#78e08f"/></linearGradient></defs>
+  <rect width="1200" height="900" fill="url(#g)"/><circle cx="1000" cy="450" r="310" fill="#fff" fill-opacity=".08"/><path d="M1000 210a240 240 0 1 0 170 70" fill="none" stroke="#d8ffe5" stroke-width="42" stroke-linecap="round"/><path d="M1130 185l70 130-145-10z" fill="#d8ffe5"/>
+  <text x="82" y="120" fill="#baffe0" font-family="Inter,Arial,sans-serif" font-size="29" font-weight="700" letter-spacing="5">ANDROID · PRODUCTIVITY</text>
+  <text x="78" y="500" fill="#fff" font-family="Space Grotesk,Arial,sans-serif" font-size="160" font-weight="700">InstaRecall</text>
+  <text x="86" y="598" fill="#e8fff0" font-family="Inter,Arial,sans-serif" font-size="42">Bring back what you saved—and what you promised.</text>
+</svg>
