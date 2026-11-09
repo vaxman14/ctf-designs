@@ -215,7 +215,7 @@ FOOTER = """<footer>
   </div>
 </footer>"""
 
-A11Y = """<script src="https://ctf-widgets.netlify.app/v1/ada.js" defer data-position="bottom-left" data-color="#7C3AED" data-statement="/accessibility.html"></script>
+A11Y = """<script src="/widgets/ada.js" defer data-position="bottom-left" data-color="#7C3AED" data-statement="/accessibility.html"></script>
 <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent">
   <p>We use cookies to improve your experience. By continuing, you agree to our <a href="/cookies.html">Cookie Policy</a>.</p>
   <div class="cookie-actions">
